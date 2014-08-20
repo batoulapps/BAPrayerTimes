@@ -36,7 +36,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,6 +70,10 @@
         case 5:
             cell.textLabel.text = @"Isha";
             cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesIsha]];
+            break;
+        case 6:
+            cell.textLabel.text = @"Fajr Tomorrow";
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesFajrTomorrow]];
             break;
     }
     
