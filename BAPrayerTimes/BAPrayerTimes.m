@@ -102,7 +102,7 @@ self = [super init];
     }
 
     /* method to use for extreme locations */
-    conf.extreme = self.extremeMethod;
+    conf.extreme = (int)self.extremeMethod;
 
     /* calculate prayer times */
     getPrayerTimes(&loc, &conf, &date, ptList);
