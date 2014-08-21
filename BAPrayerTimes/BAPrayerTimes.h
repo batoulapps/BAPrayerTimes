@@ -54,7 +54,9 @@ extern NSString * const kBAPrayerTimesFajrTomorrow;
 
 - (id)initWithLatitude:(double)latitude longitude:(double)longitude timeZone:(NSTimeZone *)timeZone method:(BAPrayerMethod)method madhab:(BAPrayerMadhab)madhab;
 
-- (NSDictionary *)getPrayerTimes;
-- (NSDictionary *)getPrayerTimesForDate:(NSDate *)date;
+- (NSDictionary *)prayerTimes;
+- (NSDictionary *)prayerTimesForDate:(NSDate *)date;
+- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey;
+- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey date:(NSDate *)date;
 
 @end

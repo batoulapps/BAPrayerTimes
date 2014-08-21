@@ -31,7 +31,7 @@
 																timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
 																  method:BAPrayerMethodMWL
 																  madhab:BAPrayerMadhabShafi];
-    self.calculatedPrayerTimes = [prayerTimes getPrayerTimes];
+    self.calculatedPrayerTimes = [prayerTimes prayerTimes];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -52,12 +52,24 @@ self = [super init];
     return self;
 }
 
-- (NSDictionary *)getPrayerTimes
+- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey
 {
-    return [self getPrayerTimesForDate:[NSDate date]];
+    return [self prayerTimeForPrayer:prayerKey date:[NSDate date]];
 }
 
-- (NSDictionary *)getPrayerTimesForDate:(NSDate *)cocoaDate
+- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey date:(NSDate *)date
+{
+    NSDictionary *calculatedPrayerTimes = [self prayerTimesForDate:date];
+    
+    return calculatedPrayerTimes[prayerKey];
+}
+
+- (NSDictionary *)prayerTimes
+{
+    return [self prayerTimesForDate:[NSDate date]];
+}
+
+- (NSDictionary *)prayerTimesForDate:(NSDate *)cocoaDate
 {
     Location loc;
     Method conf;
