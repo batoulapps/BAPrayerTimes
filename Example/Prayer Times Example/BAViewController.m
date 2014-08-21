@@ -25,12 +25,13 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.dateStyle = NSDateFormatterNoStyle;
     self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    
-    self.prayerTimes = [[BAPrayerTimes alloc] initWithLatitude:35.779701
-                                                     longitude:-78.641747
-                                                      timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
-                                                        method:BAPrayerMethodMWL
-                                                        madhab:BAPrayerMadhabShafi];
+
+    self.prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                  latitude:35.779701
+                                                 longitude:-78.641747
+                                                  timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
+                                                    method:BAPrayerMethodISNA
+                                                    madhab:BAPrayerMadhabHanafi];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

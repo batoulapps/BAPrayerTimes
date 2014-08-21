@@ -39,40 +39,42 @@ typedef enum {
 @property (strong, nonatomic, readonly) NSDate *ishaTime;
 @property (strong, nonatomic, readonly) NSDate *tomorrowFajrTime;
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timeZone:(NSTimeZone *)timeZone
-                          method:(BAPrayerMethod)method
-                          madhab:(BAPrayerMadhab)madhab;
+- (instancetype)initWithDate:(NSDate *)date
+                    latitude:(double)latitude
+                   longitude:(double)longitude
+                    timeZone:(NSTimeZone *)timeZone
+                      method:(BAPrayerMethod)method
+                      madhab:(BAPrayerMadhab)madhab;
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timeZone:(NSTimeZone *)timeZone
-                          method:(BAPrayerMethod)method
-                          madhab:(BAPrayerMadhab)madhab
-                 customFajrAngle:(double)customFajrAngle
-                 customIshaAngle:(double)customIshaAngle
-            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
-         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
-           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
-             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
-         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
-            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha;
+- (instancetype)initWithDate:(NSDate *)date
+                    latitude:(double)latitude
+                   longitude:(double)longitude
+                    timeZone:(NSTimeZone *)timeZone
+                      method:(BAPrayerMethod)method
+                      madhab:(BAPrayerMadhab)madhab
+             customFajrAngle:(double)customFajrAngle
+             customIshaAngle:(double)customIshaAngle
+        manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+     manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+       manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+         manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+     manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+        manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha;
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timeZone:(NSTimeZone *)timeZone
-                          method:(BAPrayerMethod)method
-                          madhab:(BAPrayerMadhab)madhab
-                 customFajrAngle:(double)customFajrAngle
-                 customIshaAngle:(double)customIshaAngle
-            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
-         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
-           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
-             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
-         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
-            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
-                   extremeMethod:(NSInteger)extremeMethod
-                            date:(NSDate *)date;
+- (instancetype)initWithDate:(NSDate *)date
+                    latitude:(double)latitude
+                   longitude:(double)longitude
+                    timeZone:(NSTimeZone *)timeZone
+                      method:(BAPrayerMethod)method
+                      madhab:(BAPrayerMadhab)madhab
+             customFajrAngle:(double)customFajrAngle
+             customIshaAngle:(double)customIshaAngle
+        manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+     manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+       manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+         manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+     manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+        manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
+               extremeMethod:(NSInteger)extremeMethod;
 
 @end

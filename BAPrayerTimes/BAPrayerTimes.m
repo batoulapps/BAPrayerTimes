@@ -31,73 +31,76 @@
 
 @implementation BAPrayerTimes
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timeZone:(NSTimeZone *)timeZone
-                          method:(BAPrayerMethod)method
-                          madhab:(BAPrayerMadhab)madhab
+- (instancetype)initWithDate:(NSDate *)date
+                    latitude:(double)latitude
+                   longitude:(double)longitude
+                    timeZone:(NSTimeZone *)timeZone
+                      method:(BAPrayerMethod)method
+                      madhab:(BAPrayerMadhab)madhab
 {
-    return [self initWithLatitude:latitude
-                        longitude:longitude
-                         timeZone:timeZone
-                           method:method
-                           madhab:madhab
-                  customFajrAngle:18.0
-                  customIshaAngle:17.0
-             manualAdjustmentFajr:0
-          manualAdjustmentSunrise:0
-            manualAdjustmentDhuhr:0
-              manualAdjustmentAsr:0
-          manualAdjustmentMaghrib:0
-             manualAdjustmentIsha:0];
+    return [self initWithDate:date
+                     latitude:latitude
+                    longitude:longitude
+                     timeZone:timeZone
+                       method:method
+                       madhab:madhab
+              customFajrAngle:18.0
+              customIshaAngle:17.0
+         manualAdjustmentFajr:0
+      manualAdjustmentSunrise:0
+        manualAdjustmentDhuhr:0
+          manualAdjustmentAsr:0
+      manualAdjustmentMaghrib:0
+         manualAdjustmentIsha:0];
 }
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timeZone:(NSTimeZone *)timeZone
-                          method:(BAPrayerMethod)method
-                          madhab:(BAPrayerMadhab)madhab
-                 customFajrAngle:(double)customFajrAngle
-                 customIshaAngle:(double)customIshaAngle
-            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
-         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
-           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
-             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
-         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
-            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
+- (instancetype)initWithDate:(NSDate *)date
+                    latitude:(double)latitude
+                   longitude:(double)longitude
+                    timeZone:(NSTimeZone *)timeZone
+                      method:(BAPrayerMethod)method
+                      madhab:(BAPrayerMadhab)madhab
+             customFajrAngle:(double)customFajrAngle
+             customIshaAngle:(double)customIshaAngle
+        manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+     manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+       manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+         manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+     manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+        manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
 {
-    return [self initWithLatitude:latitude
-                        longitude:longitude
-                         timeZone:timeZone
-                           method:method
-                           madhab:madhab
-                  customFajrAngle:customFajrAngle
-                  customIshaAngle:customIshaAngle
-             manualAdjustmentFajr:manualAdjustmentFajr
-          manualAdjustmentSunrise:manualAdjustmentSunrise
-            manualAdjustmentDhuhr:manualAdjustmentDhuhr
-              manualAdjustmentAsr:manualAdjustmentAsr
-          manualAdjustmentMaghrib:manualAdjustmentMaghrib
-             manualAdjustmentIsha:manualAdjustmentIsha
-                    extremeMethod:15
-                             date:[NSDate date]];
+    return [self initWithDate:date
+                     latitude:latitude
+                    longitude:longitude
+                     timeZone:timeZone
+                       method:method
+                       madhab:madhab
+              customFajrAngle:customFajrAngle
+              customIshaAngle:customIshaAngle
+         manualAdjustmentFajr:manualAdjustmentFajr
+      manualAdjustmentSunrise:manualAdjustmentSunrise
+        manualAdjustmentDhuhr:manualAdjustmentDhuhr
+          manualAdjustmentAsr:manualAdjustmentAsr
+      manualAdjustmentMaghrib:manualAdjustmentMaghrib
+         manualAdjustmentIsha:manualAdjustmentIsha
+                extremeMethod:15];
 }
 
-- (instancetype)initWithLatitude:(double)latitude
-                       longitude:(double)longitude
-                        timeZone:(NSTimeZone *)timeZone
-                          method:(BAPrayerMethod)method
-                          madhab:(BAPrayerMadhab)madhab
-                 customFajrAngle:(double)customFajrAngle
-                 customIshaAngle:(double)customIshaAngle
-            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
-         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
-           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
-             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
-         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
-            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
-                   extremeMethod:(NSInteger)extremeMethod
-                            date:(NSDate *)date
+- (instancetype)initWithDate:(NSDate *)date
+                    latitude:(double)latitude
+                   longitude:(double)longitude
+                    timeZone:(NSTimeZone *)timeZone
+                      method:(BAPrayerMethod)method
+                      madhab:(BAPrayerMadhab)madhab
+             customFajrAngle:(double)customFajrAngle
+             customIshaAngle:(double)customIshaAngle
+        manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+     manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+       manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+         manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+     manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+        manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
+               extremeMethod:(NSInteger)extremeMethod
 {
     self = [super init];
     if (self) {
