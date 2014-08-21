@@ -26,37 +26,53 @@ typedef enum {
     BAPrayerMadhabHanafi
 } BAPrayerMadhab;
 
-extern NSString * const kBAPrayerTimesFajr;
-extern NSString * const kBAPrayerTimesShuruq;
-extern NSString * const kBAPrayerTimesDhuhr;
-extern NSString * const kBAPrayerTimesAsr;
-extern NSString * const kBAPrayerTimesMaghrib;
-extern NSString * const kBAPrayerTimesIsha;
-extern NSString * const kBAPrayerTimesFajrTomorrow;
-
 @interface BAPrayerTimes : NSObject
 
-@property (assign, nonatomic) double latitude;
-@property (assign, nonatomic) double longitude;
-@property (strong, nonatomic) NSTimeZone *timeZone;
-@property (assign, nonatomic) BAPrayerMethod method;
-@property (assign, nonatomic) BAPrayerMadhab madhab;
+@property (strong, nonatomic) NSDate *date;
 
-@property (assign, nonatomic) double customFajrAngle;
-@property (assign, nonatomic) double customIshaAngle;
-@property (assign, nonatomic) NSInteger manualAdjustmentFajr;
-@property (assign, nonatomic) NSInteger manualAdjustmentShuruq;
-@property (assign, nonatomic) NSInteger manualAdjustmentDhuhr;
-@property (assign, nonatomic) NSInteger manualAdjustmentAsr;
-@property (assign, nonatomic) NSInteger manualAdjustmentMaghrib;
-@property (assign, nonatomic) NSInteger manualAdjustmentIsha;
-@property (assign, nonatomic) NSInteger extremeMethod;
+/* calculated prayer times */
+@property (strong, nonatomic, readonly) NSDate *fajrTime;
+@property (strong, nonatomic, readonly) NSDate *sunriseTime;
+@property (strong, nonatomic, readonly) NSDate *dhuhrTime;
+@property (strong, nonatomic, readonly) NSDate *asrTime;
+@property (strong, nonatomic, readonly) NSDate *maghribTime;
+@property (strong, nonatomic, readonly) NSDate *ishaTime;
+@property (strong, nonatomic, readonly) NSDate *tomorrowFajrTime;
 
-- (id)initWithLatitude:(double)latitude longitude:(double)longitude timeZone:(NSTimeZone *)timeZone method:(BAPrayerMethod)method madhab:(BAPrayerMadhab)madhab;
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        timeZone:(NSTimeZone *)timeZone
+                          method:(BAPrayerMethod)method
+                          madhab:(BAPrayerMadhab)madhab;
 
-- (NSDictionary *)prayerTimes;
-- (NSDictionary *)prayerTimesForDate:(NSDate *)date;
-- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey;
-- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey date:(NSDate *)date;
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        timeZone:(NSTimeZone *)timeZone
+                          method:(BAPrayerMethod)method
+                          madhab:(BAPrayerMadhab)madhab
+                 customFajrAngle:(double)customFajrAngle
+                 customIshaAngle:(double)customIshaAngle
+            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha;
+
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        timeZone:(NSTimeZone *)timeZone
+                          method:(BAPrayerMethod)method
+                          madhab:(BAPrayerMadhab)madhab
+                 customFajrAngle:(double)customFajrAngle
+                 customIshaAngle:(double)customIshaAngle
+            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
+                   extremeMethod:(NSInteger)extremeMethod
+                            date:(NSDate *)date;
 
 @end

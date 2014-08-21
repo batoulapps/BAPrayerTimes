@@ -11,7 +11,7 @@
 
 @interface BAViewController ()
 
-@property (strong, nonatomic) NSDictionary *calculatedPrayerTimes;
+@property (strong, nonatomic) BAPrayerTimes *prayerTimes;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 
 @end
@@ -26,12 +26,11 @@
     self.dateFormatter.dateStyle = NSDateFormatterNoStyle;
     self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
     
-    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithLatitude:35.779701
-															   longitude:-78.641747
-																timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
-																  method:BAPrayerMethodMWL
-																  madhab:BAPrayerMadhabShafi];
-    self.calculatedPrayerTimes = [prayerTimes prayerTimes];
+    self.prayerTimes = [[BAPrayerTimes alloc] initWithLatitude:35.779701
+                                                     longitude:-78.641747
+                                                      timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
+                                                        method:BAPrayerMethodMWL
+                                                        madhab:BAPrayerMadhabShafi];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -49,31 +48,31 @@
     switch (indexPath.row) {
         case 0:
             cell.textLabel.text = @"Fajr";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesFajr]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.fajrTime];
             break;
         case 1:
             cell.textLabel.text = @"Sunrise";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesShuruq]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.sunriseTime];
             break;
         case 2:
             cell.textLabel.text = @"Dhuhr";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesDhuhr]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.dhuhrTime];
             break;
         case 3:
             cell.textLabel.text = @"Asr";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesAsr]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.asrTime];
             break;
         case 4:
             cell.textLabel.text = @"Maghrib";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesMaghrib]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.maghribTime];
             break;
         case 5:
             cell.textLabel.text = @"Isha";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesIsha]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.ishaTime];
             break;
         case 6:
             cell.textLabel.text = @"Fajr Tomorrow";
-            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.calculatedPrayerTimes[kBAPrayerTimesFajrTomorrow]];
+            cell.detailTextLabel.text = [self.dateFormatter stringFromDate:self.prayerTimes.tomorrowFajrTime];
             break;
     }
     

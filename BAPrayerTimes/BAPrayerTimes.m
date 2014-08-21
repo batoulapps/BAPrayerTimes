@@ -9,67 +9,133 @@
 #import "BAPrayerTimes.h"
 #import "astro.h"
 
-NSString * const kBAPrayerTimesFajr = @"fajr";
-NSString * const kBAPrayerTimesShuruq = @"shuruq";
-NSString * const kBAPrayerTimesDhuhr = @"dhuhr";
-NSString * const kBAPrayerTimesAsr = @"asr";
-NSString * const kBAPrayerTimesMaghrib = @"maghrib";
-NSString * const kBAPrayerTimesIsha = @"isha";
-NSString * const kBAPrayerTimesFajrTomorrow = @"tomorrowFajr";
-
 @interface BAPrayerTimes ()
 
+@property (assign, nonatomic) double latitude;
+@property (assign, nonatomic) double longitude;
+@property (strong, nonatomic) NSTimeZone *timeZone;
+@property (assign, nonatomic) BAPrayerMethod method;
+@property (assign, nonatomic) BAPrayerMadhab madhab;
+@property (assign, nonatomic) double customFajrAngle;
+@property (assign, nonatomic) double customIshaAngle;
+@property (assign, nonatomic) NSInteger manualAdjustmentFajr;
+@property (assign, nonatomic) NSInteger manualAdjustmentSunrise;
+@property (assign, nonatomic) NSInteger manualAdjustmentDhuhr;
+@property (assign, nonatomic) NSInteger manualAdjustmentAsr;
+@property (assign, nonatomic) NSInteger manualAdjustmentMaghrib;
+@property (assign, nonatomic) NSInteger manualAdjustmentIsha;
 @property (strong, nonatomic) NSCalendar *calendar;
+@property (assign, nonatomic) NSInteger extremeMethod;
 
 @end
 
 @implementation BAPrayerTimes
 
-- (id)initWithLatitude:(double)latitude longitude:(double)longitude timeZone:(NSTimeZone *)timeZone method:(BAPrayerMethod)method madhab:(BAPrayerMadhab)madhab
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        timeZone:(NSTimeZone *)timeZone
+                          method:(BAPrayerMethod)method
+                          madhab:(BAPrayerMadhab)madhab
 {
-self = [super init];
+    return [self initWithLatitude:latitude
+                        longitude:longitude
+                         timeZone:timeZone
+                           method:method
+                           madhab:madhab
+                  customFajrAngle:18.0
+                  customIshaAngle:17.0
+             manualAdjustmentFajr:0
+          manualAdjustmentSunrise:0
+            manualAdjustmentDhuhr:0
+              manualAdjustmentAsr:0
+          manualAdjustmentMaghrib:0
+             manualAdjustmentIsha:0];
+}
+
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        timeZone:(NSTimeZone *)timeZone
+                          method:(BAPrayerMethod)method
+                          madhab:(BAPrayerMadhab)madhab
+                 customFajrAngle:(double)customFajrAngle
+                 customIshaAngle:(double)customIshaAngle
+            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
+{
+    return [self initWithLatitude:latitude
+                        longitude:longitude
+                         timeZone:timeZone
+                           method:method
+                           madhab:madhab
+                  customFajrAngle:customFajrAngle
+                  customIshaAngle:customIshaAngle
+             manualAdjustmentFajr:manualAdjustmentFajr
+          manualAdjustmentSunrise:manualAdjustmentSunrise
+            manualAdjustmentDhuhr:manualAdjustmentDhuhr
+              manualAdjustmentAsr:manualAdjustmentAsr
+          manualAdjustmentMaghrib:manualAdjustmentMaghrib
+             manualAdjustmentIsha:manualAdjustmentIsha
+                    extremeMethod:15
+                             date:[NSDate date]];
+}
+
+- (instancetype)initWithLatitude:(double)latitude
+                       longitude:(double)longitude
+                        timeZone:(NSTimeZone *)timeZone
+                          method:(BAPrayerMethod)method
+                          madhab:(BAPrayerMadhab)madhab
+                 customFajrAngle:(double)customFajrAngle
+                 customIshaAngle:(double)customIshaAngle
+            manualAdjustmentFajr:(NSInteger)manualAdjustmentFajr
+         manualAdjustmentSunrise:(NSInteger)manualAdjustmentSunrise
+           manualAdjustmentDhuhr:(NSInteger)manualAdjustmentDhuhr
+             manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
+         manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
+            manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
+                   extremeMethod:(NSInteger)extremeMethod
+                            date:(NSDate *)date
+{
+    self = [super init];
     if (self) {
         _latitude = latitude;
         _longitude = longitude;
         _timeZone = timeZone;
         _method = method;
         _madhab = madhab;
-        _customFajrAngle = 0.0;
-        _customIshaAngle = 0.0;
-        _manualAdjustmentFajr = 0;
-        _manualAdjustmentShuruq = 0;
-        _manualAdjustmentDhuhr = 0;
-        _manualAdjustmentAsr = 0;
-        _manualAdjustmentMaghrib = 0;
-        _manualAdjustmentIsha = 0;
-
-        /* defaulting to the angle based division of the night for extreme location
-        see prayer.h for all possible values */
-        _extremeMethod = 15;
-
+        _customFajrAngle = customFajrAngle;
+        _customIshaAngle = customIshaAngle;
+        _manualAdjustmentFajr = manualAdjustmentFajr;
+        _manualAdjustmentSunrise = manualAdjustmentSunrise;
+        _manualAdjustmentDhuhr = manualAdjustmentDhuhr;
+        _manualAdjustmentAsr = manualAdjustmentAsr;
+        _manualAdjustmentMaghrib = manualAdjustmentMaghrib;
+        _manualAdjustmentIsha = manualAdjustmentIsha;
+        _extremeMethod = extremeMethod;
+        _date = [NSDate date];
+        
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        
+        [self calculatePrayerTimes];
     }
     return self;
 }
 
-- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey
+
+#pragma mark - Date Calculation
+
+- (void)setDate:(NSDate *)date
 {
-    return [self prayerTimeForPrayer:prayerKey date:[NSDate date]];
+    _date = date;
+    [self calculatePrayerTimes];
 }
 
-- (NSDate *)prayerTimeForPrayer:(NSString *)prayerKey date:(NSDate *)date
-{
-    NSDictionary *calculatedPrayerTimes = [self prayerTimesForDate:date];
-    
-    return calculatedPrayerTimes[prayerKey];
-}
+#pragma mark - Calculation
 
-- (NSDictionary *)prayerTimes
-{
-    return [self prayerTimesForDate:[NSDate date]];
-}
-
-- (NSDictionary *)prayerTimesForDate:(NSDate *)cocoaDate
+- (void)calculatePrayerTimes
 {
     Location loc;
     Method conf;
@@ -78,7 +144,7 @@ self = [super init];
     Prayer ptList[6];
     Prayer nextFajr;
 
-    NSDateComponents *comps = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:cocoaDate];
+    NSDateComponents *comps = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
 
     date.day = (int)comps.day;
     date.month = (int)comps.month;
@@ -87,7 +153,7 @@ self = [super init];
     loc.degreeLat = self.latitude;
     loc.degreeLong = self.longitude;
 
-    NSInteger secondsFromGMT = [self.timeZone secondsFromGMTForDate:cocoaDate];
+    NSInteger secondsFromGMT = [self.timeZone secondsFromGMTForDate:self.date];
     /* convert to hours */
     loc.gmtDiff = (double)secondsFromGMT/60.0/60.0;
 
@@ -122,10 +188,6 @@ self = [super init];
     /* get tomorrow's fajr */
     getNextDayFajr(&loc, &conf, &date, &nextFajr);
 
-    const NSArray *prayerKeys = @[kBAPrayerTimesFajr, kBAPrayerTimesShuruq, kBAPrayerTimesDhuhr, kBAPrayerTimesAsr, kBAPrayerTimesMaghrib, kBAPrayerTimesIsha];
-
-    NSMutableDictionary *results = [[NSMutableDictionary alloc] init];
-
     for (int i = 0; i < 6; i++) {
         comps.hour = ptList[i].hour;
         comps.minute = ptList[i].minute;
@@ -134,25 +196,29 @@ self = [super init];
         switch (i) {
             case 0:
                 comps.minute = comps.minute + self.manualAdjustmentFajr;
+                _fajrTime = [self.calendar dateFromComponents:comps];
                 break;
             case 1:
-                comps.minute = comps.minute + self.manualAdjustmentShuruq;
+                comps.minute = comps.minute + self.manualAdjustmentSunrise;
+                _sunriseTime = [self.calendar dateFromComponents:comps];
                 break;
             case 2:
                 comps.minute = comps.minute + self.manualAdjustmentDhuhr;
+                _dhuhrTime = [self.calendar dateFromComponents:comps];
                 break;
             case 3:
                 comps.minute = comps.minute + self.manualAdjustmentAsr;
+                _asrTime = [self.calendar dateFromComponents:comps];
                 break;
             case 4:
                 comps.minute = comps.minute + self.manualAdjustmentMaghrib;
+                _maghribTime = [self.calendar dateFromComponents:comps];
                 break;
             case 5:
                 comps.minute = comps.minute + self.manualAdjustmentIsha;
+                _ishaTime = [self.calendar dateFromComponents:comps];
                 break;
         }
-
-        [results setObject:[self.calendar dateFromComponents:comps] forKey:[prayerKeys objectAtIndex:i]];
     }
 
     comps.day++;
@@ -160,9 +226,7 @@ self = [super init];
     comps.minute = nextFajr.minute + self.manualAdjustmentFajr;
     comps.second = nextFajr.second;
 
-    [results setObject:[self.calendar dateFromComponents:comps] forKey:kBAPrayerTimesFajrTomorrow];
-
-    return [results copy];
+    _tomorrowFajrTime = [self.calendar dateFromComponents:comps];
 }
 
 @end
