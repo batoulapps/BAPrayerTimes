@@ -12,7 +12,7 @@ The simplest way to use BAPrayerTimes is with CocoaPods.
 pod 'BAPrayerTimes', '~> 1.1'
 ```
 	
-You can also simply download the source and include it in your project. The neccessary files are BAPrayerTimes.h, BAPrayerTimes.c, prayer.h, prayer.c, astro.h, and astro.c
+You can also simply download the source and include it in your project. The necessary files are BAPrayerTimes.h, BAPrayerTimes.c, prayer.h, prayer.c, astro.h, and astro.c
 	
 ##Requirements
 BAPrayerTimes is officially supported on iOS 6 and above as well as OS X 10.8 and above. It will most likely work on systems much earlier than those, however no testing has been done to verify this.	
@@ -34,7 +34,7 @@ Here you provide the date the prayer times are for, the user's latitude, longitu
 After the object has been initialized you can get any of the prayer times by accessing the property for a specific prayer.
 
 ```obj-c
-self.prayerTimes.fajrTime
+prayerTimes.fajrTime
 ```
 	
 You can access the times for Fajr, Sunrise Dhuhr, Asr, Maghrib, Isha and tomorrow's Fajr. To get prayer times for a different date, simply set the date property.
@@ -74,7 +74,7 @@ UK, Germany, Spain, France, Singapore, Indonesia, Malaysia, Philippines
 
 
 ## Contributing
-It is our sincere hope that developers adopt this library and contribute back to it, providing a high level of standard for prayer time calculation to all developers. If you wish to contribute to the Objective-C interface, please create a pull request for this repo. If you would like to contribute to the C-based library that calculates the times, please open a pull request for the [ITL repo](https://github.com/arabeyes-org/ITL). One thing we hope to add soon are unit tests to provide ease of mind that the calculated times are correct and that changes to the code have not had any adverse effects.
+It is our sincere hope that developers adopt this library and contribute back to it, providing a high level of standard for prayer time calculations to all developers. If you wish to contribute to the Objective-C interface, please create a pull request for this repo. If you would like to contribute to the C-based library that calculates the times, please open a pull request for the [ITL repo](https://github.com/arabeyes-org/ITL). One thing we hope to add soon are unit tests to provide ease of mind that the calculated times are correct and that changes to the code have not had any adverse effects.
 
 ## License
 
