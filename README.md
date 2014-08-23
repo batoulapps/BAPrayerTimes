@@ -1,9 +1,9 @@
 #BAPrayerTimes
 
-BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It provides a convenient Objective-C interface to the ITL prayer times library, making it easy to correctly calculate prayer times in iOS and OS X.
+BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It provides a convenient Objective-C interface to the ITL prayer times library, making it easy to correctly calculate prayer times on iOS and OS X.
 
 ##ITL
-[The Islamic Tools and Libraries (ITL)](https://github.com/arabeyes-org/ITL) is a widely used library for useful Islamic tools written in C. It is an open source projects maintained by the arabeyes organization. Being written in C allows it to have high precision and be very efficient. It is used in many popular Linux utilities and is the source of prayer time calculation for this library.
+[The Islamic Tools and Libraries (ITL)](https://github.com/arabeyes-org/ITL) is a widely used library for useful Islamic tools written in C. It is an open source projects maintained by the arabeyes organization. Being written in C allows it to natively run on iOS and OS X. It is used in many popular Linux utilities and is the source of prayer time calculations for this library.
 
 ##Installation
 The simplest way to use BAPrayerTimes is with CocoaPods.
@@ -63,7 +63,7 @@ US, Canada
 Egypt, Sudan, Libya, Algeria, Morocco, Lebanon, Jordan, Syria, Palestine, Iraq, Turkey
 
 
-**University of Islamic Sciences, Karachi** ``BAPrayerMethodKarachiHanafi``)
+**University of Islamic Sciences, Karachi** (``BAPrayerMethodKarachiHanafi``)
 
 Pakistan, India, Bangladesh, Afghanistan
 
