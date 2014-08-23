@@ -48,12 +48,12 @@ We have provided a sample app in the [example](Example/) directory showing a bas
 ##Calculation Methods
 BAPrayerTimes provides an enum with all the options that the ITL library has. It however does not automatically set a calculation method for a specific location as there does not appear to be a definitive resource for this yet. Below are a list of suggested locations to use a particular calculation method. This list is by no means definitive and we hope to receive pull requests for any adjustments to the list.
 
-**Umm Al-Qura** ``BAPrayerMethodUmmQurra``
+**Umm Al-Qura** (``BAPrayerMethodUmmQurra``)
 
 Saudi Arabia, United Arab Emirates, Kuwait, Bahrain, Oman, Yemen, Qatar
 
 
-**North America** ``BAPrayerMethodISNA``
+**North America** (``BAPrayerMethodISNA``)
 
 US, Canada
 
@@ -63,12 +63,12 @@ US, Canada
 Egypt, Sudan, Libya, Algeria, Morocco, Lebanon, Jordan, Syria, Palestine, Iraq, Turkey
 
 
-**University of Islamic Sciences, Karachi** ``BAPrayerMethodKarachiHanafi``
+**University of Islamic Sciences, Karachi** ``BAPrayerMethodKarachiHanafi``)
 
 Pakistan, India, Bangladesh, Afghanistan
 
 
-**Muslim World League** ``BAPrayerMethodMWL``
+**Muslim World League** (``BAPrayerMethodMWL``)
 
 UK, Germany, Spain, France, Singapore, Indonesia, Malaysia, Philippines
 
