@@ -18,7 +18,7 @@ You can also simply download the source and include it in your project. The necc
 BAPrayerTimes is officially supported on iOS 6 and above as well as OS X 10.8 and above. It will most likely work on systems much earlier than those, however no testing has been done to verify this.	
 
 ##Usage
-Using BAPrayerTimes is very simple to use. There are a few different initializers you can use to create a BAPrayerTimes object depending on how much customization you want to add. The most basic initializer is:
+BAPrayerTimes is very simple to use. First import ``BAPrayerTimes.h`` and then initialize a ``BAPrayerTimes`` object. There are a few different initializers you can use to create a BAPrayerTimes object depending on how much customization you want to add. The most basic initializer is:
 
 ```obj-c
 BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:date
@@ -29,7 +29,7 @@ BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:date
                                                           madhab:BAPrayerMadhabShafi];
 ```
                                                     
-Here you provide the day the prayer times are for, the user's latitude, longitude and timezone as well the calculation method for Fajr and Isha and the madhab to use for Asr. There are additional initializers where you can also include angles for a custom calculation method as well as manual adjustments for each prayer.
+Here you provide the date the prayer times are for, the user's latitude, longitude and timezone as well the calculation method for Fajr and Isha and the madhab to use for Asr. There are additional initializers where you can also include angles for a custom calculation method and manual adjustments for each prayer.
 
 After the object has been initialized you can get any of the prayer times by accessing the property for a specific prayer.
 
@@ -46,7 +46,7 @@ prayerTimes.date = newDate;
 We have provided a sample app in the [example](Example/) directory showing a basic iOS implementation of BAPrayerTimes.
 
 ##Calculation Methods
-BAPrayerTimes provides an enum with all the options that the ITL library has. It however does not automatically set a calculation method for a specific location as there does not appear to be a definitive resource for this yet. Below are a list of suggested locations to use a particular calculation method. This list is by no means definitive and we hope to receive pull requests for any adjustments to the list.
+BAPrayerTimes provides an enum with all the options that the ITL library has. However, it does not automatically set a calculation method for a specific location as there does not appear to be a definitive resource for this yet. Below are a list of suggested locations to use a particular calculation method. This list is by no means definitive and we hope to receive pull requests for any adjustments to the list.
 
 **Umm Al-Qura** (``BAPrayerMethodUmmQurra``)
 
