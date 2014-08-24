@@ -104,6 +104,7 @@
 {
     self = [super init];
     if (self) {
+        _date = date;
         _latitude = latitude;
         _longitude = longitude;
         _timeZone = timeZone;
@@ -118,7 +119,6 @@
         _manualAdjustmentMaghrib = manualAdjustmentMaghrib;
         _manualAdjustmentIsha = manualAdjustmentIsha;
         _extremeMethod = extremeMethod;
-        _date = [NSDate date];
         
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         
