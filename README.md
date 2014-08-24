@@ -3,7 +3,7 @@
 BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It provides a convenient Objective-C interface to the ITL prayer times library, making it easy to correctly calculate prayer times on iOS and OS X.
 
 ##ITL
-[The Islamic Tools and Libraries (ITL)](https://github.com/arabeyes-org/ITL) is a widely used library for useful Islamic tools written in C. It is an open source projects maintained by the arabeyes organization. Being written in C allows it to natively run on iOS and OS X. It is used in many popular Linux utilities and is the source of prayer time calculations for this library.
+[The Islamic Tools and Libraries (ITL)](https://github.com/arabeyes-org/ITL) is a widely used library for useful Islamic tools written in C. It is an open source project maintained by the arabeyes organization. Being written in C allows it to natively run on iOS and OS X. It is used in many popular Linux utilities and is the source of prayer time calculations for this library.
 
 ##Installation
 The simplest way to use BAPrayerTimes is with CocoaPods.
@@ -37,7 +37,7 @@ After the object has been initialized you can get any of the prayer times by acc
 prayerTimes.fajrTime
 ```
 	
-You can access the times for Fajr, Sunrise Dhuhr, Asr, Maghrib, Isha and tomorrow's Fajr. To get prayer times for a different date, simply set the date property.
+You can access the times for Fajr, Sunrise Dhuhr, Asr, Maghrib, Isha and tomorrow's Fajr. To get prayer times for a different date, simply update the date property.
 
 ```obj-c
 prayerTimes.date = newDate;
