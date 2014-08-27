@@ -60,7 +60,7 @@ US, Canada
 
 **Egyptian General Authority of Survey** (``BAPrayerMethodNewEgyptianAuthority``)
 
-Egypt, Sudan, Libya, Algeria, Morocco, Lebanon, Jordan, Syria, Palestine, Iraq, Turkey
+Egypt, Sudan, Libya, Algeria, Morocco, Lebanon, Jordan, Syria, Palestine, Iraq, Turkey, Malaysia
 
 
 **University of Islamic Sciences, Karachi** (``BAPrayerMethodKarachiHanafi``)
@@ -70,7 +70,7 @@ Pakistan, India, Bangladesh, Afghanistan
 
 **Muslim World League** (``BAPrayerMethodMWL``)
 
-UK, Germany, Spain, France, Singapore, Indonesia, Malaysia, Philippines
+UK, Germany, Spain, France, Singapore, Indonesia, Philippines
 
 
 ## Contributing
