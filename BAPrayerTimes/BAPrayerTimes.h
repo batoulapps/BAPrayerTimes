@@ -18,7 +18,8 @@ typedef enum {
     BAPrayerMethodUmmQurra,
     BAPrayerMethodFixedIsha,
     BAPrayerMethodNewEgyptianAuthority,
-    BAPrayerMethodUmmQurraRamadan
+    BAPrayerMethodUmmQurraRamadan,
+    BAPrayerMethodMCW
 } BAPrayerMethod;
 
 typedef enum {
