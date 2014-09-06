@@ -13,12 +13,13 @@ typedef enum {
     BAPrayerMethodEgyptianGeneralAuthorityOfSurvey,
     BAPrayerMethodKarachiShafi,
     BAPrayerMethodKarachiHanafi,
-    BAPrayerMethodISNA,
+    BAPrayerMethodNorthAmerica,
     BAPrayerMethodMWL,
     BAPrayerMethodUmmQurra,
     BAPrayerMethodFixedIsha,
     BAPrayerMethodNewEgyptianAuthority,
-    BAPrayerMethodUmmQurraRamadan
+    BAPrayerMethodUmmQurraRamadan,
+    BAPrayerMethodMCW
 } BAPrayerMethod;
 
 typedef enum {

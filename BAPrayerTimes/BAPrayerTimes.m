@@ -29,6 +29,8 @@
 
 @end
 
+static NSInteger const kBADefaultExtremeMethod = 7;
+
 @implementation BAPrayerTimes
 
 - (instancetype)initWithDate:(NSDate *)date
@@ -45,7 +47,7 @@
                        method:method
                        madhab:madhab
               customFajrAngle:18.0
-              customIshaAngle:17.0
+              customIshaAngle:18.0
          manualAdjustmentFajr:0
       manualAdjustmentSunrise:0
         manualAdjustmentDhuhr:0
@@ -83,7 +85,7 @@
           manualAdjustmentAsr:manualAdjustmentAsr
       manualAdjustmentMaghrib:manualAdjustmentMaghrib
          manualAdjustmentIsha:manualAdjustmentIsha
-                extremeMethod:15];
+                extremeMethod:kBADefaultExtremeMethod];
 }
 
 - (instancetype)initWithDate:(NSDate *)date
@@ -146,12 +148,12 @@
 
     Prayer ptList[6];
     Prayer nextFajr;
+    
+    NSDateComponents *components = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
 
-    NSDateComponents *comps = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
-
-    date.day = (int)comps.day;
-    date.month = (int)comps.month;
-    date.year = (int)comps.year;
+    date.day = (int)components.day;
+    date.month = (int)components.month;
+    date.year = (int)components.year;
 
     loc.degreeLat = self.latitude;
     loc.degreeLong = self.longitude;
@@ -185,6 +187,14 @@
     /* method to use for extreme locations */
     conf.extreme = (int)self.extremeMethod;
 
+    conf.offset = 1;
+    conf.offList[0] = self.manualAdjustmentFajr;
+    conf.offList[1] = self.manualAdjustmentSunrise;
+    conf.offList[2] = self.manualAdjustmentDhuhr;
+    conf.offList[3] = self.manualAdjustmentAsr;
+    conf.offList[4] = self.manualAdjustmentMaghrib;
+    conf.offList[5] = self.manualAdjustmentIsha;
+
     /* calculate prayer times */
     getPrayerTimes(&loc, &conf, &date, ptList);
 
@@ -192,44 +202,38 @@
     getNextDayFajr(&loc, &conf, &date, &nextFajr);
 
     for (int i = 0; i < 6; i++) {
-        comps.hour = ptList[i].hour;
-        comps.minute = ptList[i].minute;
-        comps.second = ptList[i].second;
+        components.hour = ptList[i].hour;
+        components.minute = ptList[i].minute;
+        components.second = ptList[i].second;
 
         switch (i) {
             case 0:
-                comps.minute = comps.minute + self.manualAdjustmentFajr;
-                _fajrTime = [self.calendar dateFromComponents:comps];
+                _fajrTime = [self.calendar dateFromComponents:components];
                 break;
             case 1:
-                comps.minute = comps.minute + self.manualAdjustmentSunrise;
-                _sunriseTime = [self.calendar dateFromComponents:comps];
+                _sunriseTime = [self.calendar dateFromComponents:components];
                 break;
             case 2:
-                comps.minute = comps.minute + self.manualAdjustmentDhuhr;
-                _dhuhrTime = [self.calendar dateFromComponents:comps];
+                _dhuhrTime = [self.calendar dateFromComponents:components];
                 break;
             case 3:
-                comps.minute = comps.minute + self.manualAdjustmentAsr;
-                _asrTime = [self.calendar dateFromComponents:comps];
+                _asrTime = [self.calendar dateFromComponents:components];
                 break;
             case 4:
-                comps.minute = comps.minute + self.manualAdjustmentMaghrib;
-                _maghribTime = [self.calendar dateFromComponents:comps];
+                _maghribTime = [self.calendar dateFromComponents:components];
                 break;
             case 5:
-                comps.minute = comps.minute + self.manualAdjustmentIsha;
-                _ishaTime = [self.calendar dateFromComponents:comps];
+                _ishaTime = [self.calendar dateFromComponents:components];
                 break;
         }
     }
 
-    comps.day++;
-    comps.hour = nextFajr.hour;
-    comps.minute = nextFajr.minute + self.manualAdjustmentFajr;
-    comps.second = nextFajr.second;
+    components.day++;
+    components.hour = nextFajr.hour;
+    components.minute = nextFajr.minute;
+    components.second = nextFajr.second;
 
-    _tomorrowFajrTime = [self.calendar dateFromComponents:comps];
+    _tomorrowFajrTime = [self.calendar dateFromComponents:components];
 }
 
 @end
