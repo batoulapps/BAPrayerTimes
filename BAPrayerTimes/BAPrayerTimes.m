@@ -150,43 +150,43 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     Prayer nextFajr;
     
     NSDateComponents *components = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
-    
+
     date.day = (int)components.day;
     date.month = (int)components.month;
     date.year = (int)components.year;
-    
+
     loc.degreeLat = self.latitude;
     loc.degreeLong = self.longitude;
-    
+
     NSInteger secondsFromGMT = [self.timeZone secondsFromGMTForDate:self.date];
     /* convert to hours */
     loc.gmtDiff = (double)secondsFromGMT/60.0/60.0;
-    
+
     /* gmtDiff already contains DST adjustment so we keep this at 0 */
     loc.dst = 0;
-    
+
     /* default values */
     loc.seaLevel = 0;
     loc.pressure = 1010;
     loc.temperature= 10;
-    
+
     /* fill the method configuration parameters with default values  */
     getMethod(self.method, &conf);
-    
+
     /* use normal rounding */
     conf.round = 1;
-    
+
     /* override default madhab with our value */
     conf.mathhab = self.madhab;
-    
+
     if(self.method == BAPrayerMethodNone) {
         conf.fajrAng = self.customFajrAngle;
         conf.ishaaAng = self.customIshaAngle;
     }
-    
+
     /* method to use for extreme locations */
     conf.extreme = (int)self.extremeMethod;
-    
+
     conf.offset = 1;
     conf.offList[0] = self.manualAdjustmentFajr;
     conf.offList[1] = self.manualAdjustmentSunrise;
@@ -194,18 +194,18 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     conf.offList[3] = self.manualAdjustmentAsr;
     conf.offList[4] = self.manualAdjustmentMaghrib;
     conf.offList[5] = self.manualAdjustmentIsha;
-    
+
     /* calculate prayer times */
     getPrayerTimes(&loc, &conf, &date, ptList);
-    
+
     /* get tomorrow's fajr */
     getNextDayFajr(&loc, &conf, &date, &nextFajr);
-    
+
     for (int i = 0; i < 6; i++) {
         components.hour = ptList[i].hour;
         components.minute = ptList[i].minute;
         components.second = ptList[i].second;
-        
+
         switch (i) {
             case 0:
                 _fajrTime = [self.calendar dateFromComponents:components];
@@ -227,12 +227,12 @@ static NSInteger const kBADefaultExtremeMethod = 7;
                 break;
         }
     }
-    
+
     components.day++;
     components.hour = nextFajr.hour;
     components.minute = nextFajr.minute;
     components.second = nextFajr.second;
-    
+
     _tomorrowFajrTime = [self.calendar dateFromComponents:components];
 }
 
