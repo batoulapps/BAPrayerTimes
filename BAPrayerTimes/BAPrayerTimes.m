@@ -145,7 +145,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     Location loc;
     Method conf;
     Date date;
-    
+
     Prayer ptList[6];
     Prayer nextFajr;
     
