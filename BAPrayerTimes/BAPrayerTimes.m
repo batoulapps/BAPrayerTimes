@@ -149,11 +149,11 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     Prayer ptList[6];
     Prayer nextFajr;
     
-    NSDateComponents *comps = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
+    NSDateComponents *components = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
     
-    date.day = (int)comps.day;
-    date.month = (int)comps.month;
-    date.year = (int)comps.year;
+    date.day = (int)components.day;
+    date.month = (int)components.month;
+    date.year = (int)components.year;
     
     loc.degreeLat = self.latitude;
     loc.degreeLong = self.longitude;
@@ -202,38 +202,38 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     getNextDayFajr(&loc, &conf, &date, &nextFajr);
     
     for (int i = 0; i < 6; i++) {
-        comps.hour = ptList[i].hour;
-        comps.minute = ptList[i].minute;
-        comps.second = ptList[i].second;
+        components.hour = ptList[i].hour;
+        components.minute = ptList[i].minute;
+        components.second = ptList[i].second;
         
         switch (i) {
             case 0:
-                _fajrTime = [self.calendar dateFromComponents:comps];
+                _fajrTime = [self.calendar dateFromComponents:components];
                 break;
             case 1:
-                _sunriseTime = [self.calendar dateFromComponents:comps];
+                _sunriseTime = [self.calendar dateFromComponents:components];
                 break;
             case 2:
-                _dhuhrTime = [self.calendar dateFromComponents:comps];
+                _dhuhrTime = [self.calendar dateFromComponents:components];
                 break;
             case 3:
-                _asrTime = [self.calendar dateFromComponents:comps];
+                _asrTime = [self.calendar dateFromComponents:components];
                 break;
             case 4:
-                _maghribTime = [self.calendar dateFromComponents:comps];
+                _maghribTime = [self.calendar dateFromComponents:components];
                 break;
             case 5:
-                _ishaTime = [self.calendar dateFromComponents:comps];
+                _ishaTime = [self.calendar dateFromComponents:components];
                 break;
         }
     }
     
-    comps.day++;
-    comps.hour = nextFajr.hour;
-    comps.minute = nextFajr.minute;
-    comps.second = nextFajr.second;
+    components.day++;
+    components.hour = nextFajr.hour;
+    components.minute = nextFajr.minute;
+    components.second = nextFajr.second;
     
-    _tomorrowFajrTime = [self.calendar dateFromComponents:comps];
+    _tomorrowFajrTime = [self.calendar dateFromComponents:components];
 }
 
 @end

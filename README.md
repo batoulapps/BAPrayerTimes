@@ -9,7 +9,7 @@ BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It
 The simplest way to use BAPrayerTimes is with CocoaPods.
 
 ```
-pod 'BAPrayerTimes', '~> 1.1'
+pod 'BAPrayerTimes', '~> 1.2'
 ```
 	
 You can also simply download the source and include it in your project. The necessary files are BAPrayerTimes.h, BAPrayerTimes.c, prayer.h, prayer.c, astro.h, and astro.c
@@ -53,9 +53,9 @@ BAPrayerTimes provides an enum with all the options that the ITL library has. Ho
 Saudi Arabia, United Arab Emirates, Kuwait, Bahrain, Oman, Yemen, Qatar
 
 
-**North America** (``BAPrayerMethodISNA``)
+**Moonsighting Committee Worldwide** (``BAPrayerMethodMCW``)
 
-US, Canada
+US, Canada, UK
 
 
 **Egyptian General Authority of Survey** (``BAPrayerMethodNewEgyptianAuthority``)
@@ -70,7 +70,12 @@ Pakistan, India, Bangladesh, Afghanistan
 
 **Muslim World League** (``BAPrayerMethodMWL``)
 
-UK, Germany, Spain, France, Singapore, Indonesia, Philippines
+Germany, Spain, France, Singapore, Indonesia, Philippines
+
+
+**North America** (``BAPrayerMethodNorthAmerica``)
+
+Not Recommended
 
 
 ## Contributing

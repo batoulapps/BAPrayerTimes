@@ -30,7 +30,7 @@
                                                   latitude:35.779701
                                                  longitude:-78.641747
                                                   timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
-                                                    method:BAPrayerMethodISNA
+                                                    method:BAPrayerMethodNorthAmerica
                                                     madhab:BAPrayerMadhabHanafi];
 }
 
