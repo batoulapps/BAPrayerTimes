@@ -50,7 +50,12 @@ BAPrayerTimes provides an enum with all the options that the ITL library has. Ho
 
 **Umm Al-Qura** (``BAPrayerMethodUmmQurra``)
 
-Saudi Arabia, United Arab Emirates, Kuwait, Bahrain, Oman, Yemen, Qatar
+Saudi Arabia
+
+
+**Gulf** (``BAPrayerMethodFixedIsha``)
+
+United Arab Emirates, Kuwait, Bahrain, Oman, Yemen, Qatar
 
 
 **Moonsighting Committee Worldwide** (``BAPrayerMethodMCW``)
