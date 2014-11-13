@@ -1,19 +1,19 @@
 //
-//  Prayer_Times_ExampleTests.m
-//  Prayer Times ExampleTests
+//  BAPrayerTimesTest.m
+//  BAPrayerTimes
 //
-//  Created by Ameir Al-Zoubi on 8/19/14.
+//  Created by Ameir Al-Zoubi on 11/12/14.
 //  Copyright (c) 2014 Batoul Apps. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "BAPrayerTimes.h"
 
-@interface Prayer_Times_ExampleTests : XCTestCase
+@interface BAPrayerTimesTest : XCTestCase
 
 @end
 
-@implementation Prayer_Times_ExampleTests
+@implementation BAPrayerTimesTest
 
 - (void)setUp
 {
@@ -30,11 +30,11 @@
 - (void)testInitializers
 {
     BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
-                                                  latitude:35.779701
-                                                 longitude:-78.641747
-                                                  timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
-                                                    method:BAPrayerMethodNorthAmerica
-                                                    madhab:BAPrayerMadhabHanafi];
+                                                             latitude:35.779701
+                                                            longitude:-78.641747
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
+                                                               method:BAPrayerMethodNorthAmerica
+                                                               madhab:BAPrayerMadhabHanafi];
     
     XCTAssertNotNil(prayerTimes1, @"prayerTimes1 shouldn't be nil");
     XCTAssertNotNil(prayerTimes1.fajrTime, @"prayerTimes1.fajrTime shouldn't be nil");
@@ -148,5 +148,6 @@
     XCTAssertEqual(maghribDifference, (NSTimeInterval) maghribAdjustment * 60.0, @"maghrib adjustment should equal maghrib difference");
     XCTAssertEqual(ishaDifference, (NSTimeInterval) ishaAdjustment * 60.0, @"isha adjustment should equal isha difference");
 }
+
 
 @end

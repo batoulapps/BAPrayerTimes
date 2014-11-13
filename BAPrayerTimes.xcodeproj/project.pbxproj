@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84443B861A146D0F004F438E /* BAPrayerTimes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 84443B851A146D0F004F438E /* BAPrayerTimes.h */; };
+		84443B881A146D0F004F438E /* BAPrayerTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84443B871A146D0F004F438E /* BAPrayerTimes.m */; };
+		84443B8E1A146D0F004F438E /* libBAPrayerTimes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84443B821A146D0F004F438E /* libBAPrayerTimes.a */; };
+		84443BA11A146E42004F438E /* astro.c in Sources */ = {isa = PBXBuildFile; fileRef = 84443B9D1A146E42004F438E /* astro.c */; };
+		84443BA21A146E42004F438E /* prayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 84443B9F1A146E42004F438E /* prayer.c */; };
+		84443BA41A146E85004F438E /* BAPrayerTimesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84443BA31A146E85004F438E /* BAPrayerTimesTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84443B8F1A146D0F004F438E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84443B7A1A146D0F004F438E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84443B811A146D0F004F438E;
+			remoteInfo = BAPrayerTimes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84443B801A146D0F004F438E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				84443B861A146D0F004F438E /* BAPrayerTimes.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		84443B821A146D0F004F438E /* libBAPrayerTimes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBAPrayerTimes.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		84443B851A146D0F004F438E /* BAPrayerTimes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BAPrayerTimes.h; sourceTree = "<group>"; };
+		84443B871A146D0F004F438E /* BAPrayerTimes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BAPrayerTimes.m; sourceTree = "<group>"; };
+		84443B8D1A146D0F004F438E /* BAPrayerTimesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BAPrayerTimesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84443B931A146D0F004F438E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84443B9D1A146E42004F438E /* astro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = astro.c; path = ITL/prayertime/astro.c; sourceTree = SOURCE_ROOT; };
+		84443B9E1A146E42004F438E /* astro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = astro.h; path = ITL/prayertime/astro.h; sourceTree = SOURCE_ROOT; };
+		84443B9F1A146E42004F438E /* prayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = prayer.c; path = ITL/prayertime/prayer.c; sourceTree = SOURCE_ROOT; };
+		84443BA01A146E42004F438E /* prayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = prayer.h; path = ITL/prayertime/prayer.h; sourceTree = SOURCE_ROOT; };
+		84443BA31A146E85004F438E /* BAPrayerTimesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPrayerTimesTest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84443B7F1A146D0F004F438E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84443B8A1A146D0F004F438E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84443B8E1A146D0F004F438E /* libBAPrayerTimes.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84443B791A146D0F004F438E = {
+			isa = PBXGroup;
+			children = (
+				84443B841A146D0F004F438E /* BAPrayerTimes */,
+				84443B9C1A146DB4004F438E /* ITL */,
+				84443B911A146D0F004F438E /* Tests */,
+				84443B831A146D0F004F438E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84443B831A146D0F004F438E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84443B821A146D0F004F438E /* libBAPrayerTimes.a */,
+				84443B8D1A146D0F004F438E /* BAPrayerTimesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84443B841A146D0F004F438E /* BAPrayerTimes */ = {
+			isa = PBXGroup;
+			children = (
+				84443B851A146D0F004F438E /* BAPrayerTimes.h */,
+				84443B871A146D0F004F438E /* BAPrayerTimes.m */,
+			);
+			path = BAPrayerTimes;
+			sourceTree = "<group>";
+		};
+		84443B911A146D0F004F438E /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				84443B921A146D0F004F438E /* Supporting Files */,
+				84443BA31A146E85004F438E /* BAPrayerTimesTest.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		84443B921A146D0F004F438E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84443B931A146D0F004F438E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84443B9C1A146DB4004F438E /* ITL */ = {
+			isa = PBXGroup;
+			children = (
+				84443B9E1A146E42004F438E /* astro.h */,
+				84443B9D1A146E42004F438E /* astro.c */,
+				84443BA01A146E42004F438E /* prayer.h */,
+				84443B9F1A146E42004F438E /* prayer.c */,
+			);
+			name = ITL;
+			path = BAPrayerTimes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84443B811A146D0F004F438E /* BAPrayerTimes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84443B961A146D0F004F438E /* Build configuration list for PBXNativeTarget "BAPrayerTimes" */;
+			buildPhases = (
+				84443B7E1A146D0F004F438E /* Sources */,
+				84443B7F1A146D0F004F438E /* Frameworks */,
+				84443B801A146D0F004F438E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BAPrayerTimes;
+			productName = BAPrayerTimes;
+			productReference = 84443B821A146D0F004F438E /* libBAPrayerTimes.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		84443B8C1A146D0F004F438E /* BAPrayerTimesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84443B991A146D0F004F438E /* Build configuration list for PBXNativeTarget "BAPrayerTimesTests" */;
+			buildPhases = (
+				84443B891A146D0F004F438E /* Sources */,
+				84443B8A1A146D0F004F438E /* Frameworks */,
+				84443B8B1A146D0F004F438E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84443B901A146D0F004F438E /* PBXTargetDependency */,
+			);
+			name = BAPrayerTimesTests;
+			productName = BAPrayerTimesTests;
+			productReference = 84443B8D1A146D0F004F438E /* BAPrayerTimesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84443B7A1A146D0F004F438E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Batoul Apps";
+				TargetAttributes = {
+					84443B811A146D0F004F438E = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					84443B8C1A146D0F004F438E = {
+						CreatedOnToolsVersion = 6.1;
+					};
+				};
+			};
+			buildConfigurationList = 84443B7D1A146D0F004F438E /* Build configuration list for PBXProject "BAPrayerTimes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84443B791A146D0F004F438E;
+			productRefGroup = 84443B831A146D0F004F438E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84443B811A146D0F004F438E /* BAPrayerTimes */,
+				84443B8C1A146D0F004F438E /* BAPrayerTimesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84443B8B1A146D0F004F438E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84443B7E1A146D0F004F438E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84443B881A146D0F004F438E /* BAPrayerTimes.m in Sources */,
+				84443BA21A146E42004F438E /* prayer.c in Sources */,
+				84443BA11A146E42004F438E /* astro.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84443B891A146D0F004F438E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84443BA41A146E85004F438E /* BAPrayerTimesTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84443B901A146D0F004F438E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84443B811A146D0F004F438E /* BAPrayerTimes */;
+			targetProxy = 84443B8F1A146D0F004F438E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		84443B941A146D0F004F438E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84443B951A146D0F004F438E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84443B971A146D0F004F438E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		84443B981A146D0F004F438E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		84443B9A1A146D0F004F438E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84443B9B1A146D0F004F438E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84443B7D1A146D0F004F438E /* Build configuration list for PBXProject "BAPrayerTimes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84443B941A146D0F004F438E /* Debug */,
+				84443B951A146D0F004F438E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84443B961A146D0F004F438E /* Build configuration list for PBXNativeTarget "BAPrayerTimes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84443B971A146D0F004F438E /* Debug */,
+				84443B981A146D0F004F438E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84443B991A146D0F004F438E /* Build configuration list for PBXNativeTarget "BAPrayerTimesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84443B9A1A146D0F004F438E /* Debug */,
+				84443B9B1A146D0F004F438E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84443B7A1A146D0F004F438E /* Project object */;
+}
