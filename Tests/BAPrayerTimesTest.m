@@ -199,8 +199,8 @@
     XCTAssertEqualObjects(prayerTimes1.fajrTime, prayerTimes2.fajrTime, @"ISNA fajr and custom angle 15 fajr should be the same");
     XCTAssertNotEqualObjects(prayerTimes1.ishaTime, prayerTimes2.ishaTime, @"ISNA isha and custom angle 10 isha should not be the same");
 
-    XCTAssertNotEqualObjects(prayerTimes1.fajrTime, prayerTimes3.fajrTime, @"ISNA fajr and custom angle 10 fajr should be the same");
-    XCTAssertEqualObjects(prayerTimes1.ishaTime, prayerTimes3.ishaTime, @"ISNA isha and custom angle 15 isha should not be the same");
+    XCTAssertNotEqualObjects(prayerTimes1.fajrTime, prayerTimes3.fajrTime, @"ISNA fajr and custom angle 10 fajr should not be the same");
+    XCTAssertEqualObjects(prayerTimes1.ishaTime, prayerTimes3.ishaTime, @"ISNA isha and custom angle 15 isha should be the same");
 }
 
 
