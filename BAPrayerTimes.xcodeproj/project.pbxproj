@@ -101,8 +101,8 @@
 		84443B911A146D0F004F438E /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				84443B921A146D0F004F438E /* Supporting Files */,
 				84443BA31A146E85004F438E /* BAPrayerTimesTest.m */,
+				84443B921A146D0F004F438E /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

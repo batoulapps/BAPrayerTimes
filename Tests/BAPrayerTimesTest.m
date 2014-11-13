@@ -149,5 +149,59 @@
     XCTAssertEqual(ishaDifference, (NSTimeInterval) ishaAdjustment * 60.0, @"isha adjustment should equal isha difference");
 }
 
+- (void)testCustomAngles
+{
+    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                             latitude:35.779701
+                                                            longitude:-78.641747
+                                                             timeZone:[NSTimeZone localTimeZone]
+                                                               method:BAPrayerMethodNorthAmerica
+                                                               madhab:BAPrayerMadhabShafi
+                                                      customFajrAngle:0
+                                                      customIshaAngle:0
+                                                 manualAdjustmentFajr:0
+                                              manualAdjustmentSunrise:0
+                                                manualAdjustmentDhuhr:0
+                                                  manualAdjustmentAsr:0
+                                              manualAdjustmentMaghrib:0
+                                                 manualAdjustmentIsha:0];
+
+    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                             latitude:35.779701
+                                                            longitude:-78.641747
+                                                             timeZone:[NSTimeZone localTimeZone]
+                                                               method:BAPrayerMethodNone
+                                                               madhab:BAPrayerMadhabShafi
+                                                      customFajrAngle:15
+                                                      customIshaAngle:10
+                                                 manualAdjustmentFajr:0
+                                              manualAdjustmentSunrise:0
+                                                manualAdjustmentDhuhr:0
+                                                  manualAdjustmentAsr:0
+                                              manualAdjustmentMaghrib:0
+                                                 manualAdjustmentIsha:0];
+
+    BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                             latitude:35.779701
+                                                            longitude:-78.641747
+                                                             timeZone:[NSTimeZone localTimeZone]
+                                                               method:BAPrayerMethodNone
+                                                               madhab:BAPrayerMadhabShafi
+                                                      customFajrAngle:10
+                                                      customIshaAngle:15
+                                                 manualAdjustmentFajr:0
+                                              manualAdjustmentSunrise:0
+                                                manualAdjustmentDhuhr:0
+                                                  manualAdjustmentAsr:0
+                                              manualAdjustmentMaghrib:0
+                                                 manualAdjustmentIsha:0];
+
+    XCTAssertEqualObjects(prayerTimes1.fajrTime, prayerTimes2.fajrTime, @"ISNA fajr and custom angle 15 fajr should be the same");
+    XCTAssertNotEqualObjects(prayerTimes1.ishaTime, prayerTimes2.ishaTime, @"ISNA isha and custom angle 10 isha should not be the same");
+
+    XCTAssertNotEqualObjects(prayerTimes1.fajrTime, prayerTimes3.fajrTime, @"ISNA fajr and custom angle 10 fajr should be the same");
+    XCTAssertEqualObjects(prayerTimes1.ishaTime, prayerTimes3.ishaTime, @"ISNA isha and custom angle 15 isha should not be the same");
+}
+
 
 @end
