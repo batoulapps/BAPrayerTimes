@@ -122,7 +122,11 @@ static NSInteger const kBADefaultExtremeMethod = 7;
         _manualAdjustmentIsha = manualAdjustmentIsha;
         _extremeMethod = extremeMethod;
         
+#ifdef __IPHONE_8_0
+        _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+#else
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+#endif
         
         [self calculatePrayerTimes];
     }
@@ -149,7 +153,11 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     Prayer ptList[6];
     Prayer nextFajr;
     
+#ifdef __IPHONE_8_0
+    NSDateComponents *components = [self.calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.date];
+#else
     NSDateComponents *components = [self.calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:self.date];
+#endif
 
     date.day = (int)components.day;
     date.month = (int)components.month;

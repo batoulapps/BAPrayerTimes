@@ -7,7 +7,7 @@
 //
 
 #import "BAViewController.h"
-#import "BAPrayerTimes.h"
+#import <BAPrayerTimes/BAPrayerTimes.h>
 
 @interface BAViewController ()
 

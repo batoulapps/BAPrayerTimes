@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84443BA61A146F31004F438E /* libBAPrayerTimes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84443BA51A146F31004F438E /* libBAPrayerTimes.a */; };
 		849554A519A3036C00FD004F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849554A419A3036C00FD004F /* Foundation.framework */; };
 		849554A719A3036C00FD004F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849554A619A3036C00FD004F /* CoreGraphics.framework */; };
 		849554A919A3036C00FD004F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849554A819A3036C00FD004F /* UIKit.framework */; };
@@ -16,27 +17,10 @@
 		849554B819A3036C00FD004F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849554B619A3036C00FD004F /* Main.storyboard */; };
 		849554BB19A3036C00FD004F /* BAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849554BA19A3036C00FD004F /* BAViewController.m */; };
 		849554BD19A3036C00FD004F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849554BC19A3036C00FD004F /* Images.xcassets */; };
-		849554C419A3036C00FD004F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849554C319A3036C00FD004F /* XCTest.framework */; };
-		849554C519A3036C00FD004F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849554A419A3036C00FD004F /* Foundation.framework */; };
-		849554C619A3036C00FD004F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849554A819A3036C00FD004F /* UIKit.framework */; };
-		849554CE19A3036C00FD004F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849554CC19A3036C00FD004F /* InfoPlist.strings */; };
-		849554D019A3036C00FD004F /* Prayer_Times_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 849554CF19A3036C00FD004F /* Prayer_Times_ExampleTests.m */; };
-		849554DC19A303EC00FD004F /* BAPrayerTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 849554DB19A303EC00FD004F /* BAPrayerTimes.m */; };
-		8495551919A3041400FD004F /* astro.c in Sources */ = {isa = PBXBuildFile; fileRef = 849554F619A3041400FD004F /* astro.c */; };
-		8495551C19A3041400FD004F /* prayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 849554FB19A3041400FD004F /* prayer.c */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		849554C719A3036C00FD004F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8495549919A3036C00FD004F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 849554A019A3036C00FD004F;
-			remoteInfo = "Prayer Times Example";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		84443BA51A146F31004F438E /* libBAPrayerTimes.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libBAPrayerTimes.a; path = "../build/Debug-iphoneos/libBAPrayerTimes.a"; sourceTree = "<group>"; };
 		849554A119A3036C00FD004F /* Prayer Times Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Prayer Times Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		849554A419A3036C00FD004F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		849554A619A3036C00FD004F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,17 +35,6 @@
 		849554B919A3036C00FD004F /* BAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BAViewController.h; sourceTree = "<group>"; };
 		849554BA19A3036C00FD004F /* BAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BAViewController.m; sourceTree = "<group>"; };
 		849554BC19A3036C00FD004F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		849554C219A3036C00FD004F /* Prayer Times ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Prayer Times ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		849554C319A3036C00FD004F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		849554CB19A3036C00FD004F /* Prayer Times ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Prayer Times ExampleTests-Info.plist"; sourceTree = "<group>"; };
-		849554CD19A3036C00FD004F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		849554CF19A3036C00FD004F /* Prayer_Times_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Prayer_Times_ExampleTests.m; sourceTree = "<group>"; };
-		849554DA19A303EC00FD004F /* BAPrayerTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPrayerTimes.h; sourceTree = "<group>"; };
-		849554DB19A303EC00FD004F /* BAPrayerTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPrayerTimes.m; sourceTree = "<group>"; };
-		849554F619A3041400FD004F /* astro.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = astro.c; sourceTree = "<group>"; };
-		849554F719A3041400FD004F /* astro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = astro.h; sourceTree = "<group>"; };
-		849554FB19A3041400FD004F /* prayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prayer.c; sourceTree = "<group>"; };
-		849554FC19A3041400FD004F /* prayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prayer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,19 +42,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84443BA61A146F31004F438E /* libBAPrayerTimes.a in Frameworks */,
 				849554A719A3036C00FD004F /* CoreGraphics.framework in Frameworks */,
 				849554A919A3036C00FD004F /* UIKit.framework in Frameworks */,
 				849554A519A3036C00FD004F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		849554BF19A3036C00FD004F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				849554C419A3036C00FD004F /* XCTest.framework in Frameworks */,
-				849554C619A3036C00FD004F /* UIKit.framework in Frameworks */,
-				849554C519A3036C00FD004F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,9 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				849554AA19A3036C00FD004F /* Prayer Times Example */,
-				849554D919A303EC00FD004F /* BAPrayerTimes */,
-				849554DD19A3041400FD004F /* ITL */,
-				849554C919A3036C00FD004F /* Prayer Times ExampleTests */,
 				849554A319A3036C00FD004F /* Frameworks */,
 				849554A219A3036C00FD004F /* Products */,
 			);
@@ -104,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				849554A119A3036C00FD004F /* Prayer Times Example.app */,
-				849554C219A3036C00FD004F /* Prayer Times ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,10 +72,10 @@
 		849554A319A3036C00FD004F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84443BA51A146F31004F438E /* libBAPrayerTimes.a */,
 				849554A419A3036C00FD004F /* Foundation.framework */,
 				849554A619A3036C00FD004F /* CoreGraphics.framework */,
 				849554A819A3036C00FD004F /* UIKit.framework */,
-				849554C319A3036C00FD004F /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,54 +105,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		849554C919A3036C00FD004F /* Prayer Times ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				849554CF19A3036C00FD004F /* Prayer_Times_ExampleTests.m */,
-				849554CA19A3036C00FD004F /* Supporting Files */,
-			);
-			path = "Prayer Times ExampleTests";
-			sourceTree = "<group>";
-		};
-		849554CA19A3036C00FD004F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				849554CB19A3036C00FD004F /* Prayer Times ExampleTests-Info.plist */,
-				849554CC19A3036C00FD004F /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		849554D919A303EC00FD004F /* BAPrayerTimes */ = {
-			isa = PBXGroup;
-			children = (
-				849554DA19A303EC00FD004F /* BAPrayerTimes.h */,
-				849554DB19A303EC00FD004F /* BAPrayerTimes.m */,
-			);
-			name = BAPrayerTimes;
-			path = ../BAPrayerTimes;
-			sourceTree = "<group>";
-		};
-		849554DD19A3041400FD004F /* ITL */ = {
-			isa = PBXGroup;
-			children = (
-				849554F519A3041400FD004F /* prayertime */,
-			);
-			name = ITL;
-			path = ../ITL;
-			sourceTree = "<group>";
-		};
-		849554F519A3041400FD004F /* prayertime */ = {
-			isa = PBXGroup;
-			children = (
-				849554F619A3041400FD004F /* astro.c */,
-				849554F719A3041400FD004F /* astro.h */,
-				849554FB19A3041400FD004F /* prayer.c */,
-				849554FC19A3041400FD004F /* prayer.h */,
-			);
-			path = prayertime;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,24 +125,6 @@
 			productReference = 849554A119A3036C00FD004F /* Prayer Times Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		849554C119A3036C00FD004F /* Prayer Times ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 849554D619A3036C00FD004F /* Build configuration list for PBXNativeTarget "Prayer Times ExampleTests" */;
-			buildPhases = (
-				849554BE19A3036C00FD004F /* Sources */,
-				849554BF19A3036C00FD004F /* Frameworks */,
-				849554C019A3036C00FD004F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				849554C819A3036C00FD004F /* PBXTargetDependency */,
-			);
-			name = "Prayer Times ExampleTests";
-			productName = "Prayer Times ExampleTests";
-			productReference = 849554C219A3036C00FD004F /* Prayer Times ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,11 +134,6 @@
 				CLASSPREFIX = BA;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Batoul Apps";
-				TargetAttributes = {
-					849554C119A3036C00FD004F = {
-						TestTargetID = 849554A019A3036C00FD004F;
-					};
-				};
 			};
 			buildConfigurationList = 8495549C19A3036C00FD004F /* Build configuration list for PBXProject "Prayer Times Example" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -260,7 +149,6 @@
 			projectRoot = "";
 			targets = (
 				849554A019A3036C00FD004F /* Prayer Times Example */,
-				849554C119A3036C00FD004F /* Prayer Times ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -276,14 +164,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		849554C019A3036C00FD004F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				849554CE19A3036C00FD004F /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -291,32 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8495551919A3041400FD004F /* astro.c in Sources */,
 				849554BB19A3036C00FD004F /* BAViewController.m in Sources */,
 				849554B119A3036C00FD004F /* main.m in Sources */,
-				849554DC19A303EC00FD004F /* BAPrayerTimes.m in Sources */,
-				8495551C19A3041400FD004F /* prayer.c in Sources */,
 				849554B519A3036C00FD004F /* BAAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		849554BE19A3036C00FD004F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				849554D019A3036C00FD004F /* Prayer_Times_ExampleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		849554C819A3036C00FD004F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 849554A019A3036C00FD004F /* Prayer Times Example */;
-			targetProxy = 849554C719A3036C00FD004F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		849554AD19A3036C00FD004F /* InfoPlist.strings */ = {
@@ -333,14 +194,6 @@
 				849554B719A3036C00FD004F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		849554CC19A3036C00FD004F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				849554CD19A3036C00FD004F /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -424,6 +277,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prayer Times Example/Prayer Times Example-Prefix.pch";
 				INFOPLIST_FILE = "Prayer Times Example/Prayer Times Example-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -437,48 +291,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Prayer Times Example/Prayer Times Example-Prefix.pch";
 				INFOPLIST_FILE = "Prayer Times Example/Prayer Times Example-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		849554D719A3036C00FD004F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Prayer Times Example.app/Prayer Times Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Prayer Times Example/Prayer Times Example-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Prayer Times ExampleTests/Prayer Times ExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		849554D819A3036C00FD004F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Prayer Times Example.app/Prayer Times Example";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Prayer Times Example/Prayer Times Example-Prefix.pch";
-				INFOPLIST_FILE = "Prayer Times ExampleTests/Prayer Times ExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -499,15 +314,6 @@
 			buildConfigurations = (
 				849554D419A3036C00FD004F /* Debug */,
 				849554D519A3036C00FD004F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		849554D619A3036C00FD004F /* Build configuration list for PBXNativeTarget "Prayer Times ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				849554D719A3036C00FD004F /* Debug */,
-				849554D819A3036C00FD004F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
