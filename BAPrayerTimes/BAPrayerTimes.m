@@ -244,4 +244,47 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     _tomorrowFajrTime = [self.calendar dateFromComponents:components];
 }
 
+- (NSDate *)prayerTimeForType:(BAPrayerType)prayerType
+{
+    switch (prayerType) {
+        case BAPrayerTypeFajr:
+            return self.fajrTime;
+        case BAPrayerTypeSunrise:
+            return self.sunriseTime;
+        case BAPrayerTypeDhuhr:
+            return self.dhuhrTime;
+        case BAPrayerTypeAsr:
+            return self.asrTime;
+        case BAPrayerTypeMaghrib:
+            return self.maghribTime;
+        case BAPrayerTypeIsha:
+            return self.ishaTime;
+        case BAPrayerTypeTomorrowFajr:
+            return self.tomorrowFajrTime;
+        case BAPrayerTypeNone:
+            return nil;
+    }
+}
+
+- (BAPrayerType)currentPrayerTypeForDate:(NSDate *)date
+{
+    BAPrayerType currentPrayer = BAPrayerTypeNone;
+    
+    for (NSInteger i = 0; i < 7; i++) {
+        NSDate *prayerTime = [self prayerTimeForType:i];
+        if ([prayerTime compare:date] == NSOrderedDescending) {
+            currentPrayer = (i + 6 - 1) % 6;
+            break;
+        }
+    }
+    
+    return currentPrayer;
+}
+
+- (BAPrayerType)nextPrayerTypeForDate:(NSDate *)date
+{
+    BAPrayerType currentPrayer = [self currentPrayerTypeForDate:date];
+    return (currentPrayer + 1) % 7;
+}
+
 @end

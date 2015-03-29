@@ -203,5 +203,86 @@
     XCTAssertEqualObjects(prayerTimes1.ishaTime, prayerTimes3.ishaTime, @"ISNA isha and custom angle 15 isha should be the same");
 }
 
+- (void)testPrayerTypes
+{
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                            latitude:35.740068
+                                                           longitude:-78.861207
+                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                              method:BAPrayerMethodMWL
+                                                              madhab:BAPrayerMadhabShafi];
+    
+    XCTAssertEqual(prayerTimes.fajrTime, [prayerTimes prayerTimeForType:BAPrayerTypeFajr], @"incorrect time for BAPrayerTypeFajr");
+    XCTAssertEqual(prayerTimes.sunriseTime, [prayerTimes prayerTimeForType:BAPrayerTypeSunrise], @"incorrect time for BAPrayerTypeSunrise");
+    XCTAssertEqual(prayerTimes.dhuhrTime, [prayerTimes prayerTimeForType:BAPrayerTypeDhuhr], @"incorrect time for BAPrayerTypeDhuhr");
+    XCTAssertEqual(prayerTimes.asrTime, [prayerTimes prayerTimeForType:BAPrayerTypeAsr], @"incorrect time for BAPrayerTypeAsr");
+    XCTAssertEqual(prayerTimes.maghribTime, [prayerTimes prayerTimeForType:BAPrayerTypeMaghrib], @"incorrect time for BAPrayerTypeMaghrib");
+    XCTAssertEqual(prayerTimes.ishaTime, [prayerTimes prayerTimeForType:BAPrayerTypeIsha], @"incorrect time for BAPrayerTypeIsha");
+    XCTAssertEqual(prayerTimes.tomorrowFajrTime, [prayerTimes prayerTimeForType:BAPrayerTypeTomorrowFajr], @"incorrect time for BAPrayerTypeTomorrowFajr");
+}
+
+- (void)testCurrentPrayerTimeChecking
+{
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                            latitude:35.740068
+                                                           longitude:-78.861207
+                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                              method:BAPrayerMethodMWL
+                                                              madhab:BAPrayerMadhabShafi];
+    
+    NSDate *fajrTime = [prayerTimes.fajrTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeFajr, [prayerTimes currentPrayerTypeForDate:fajrTime], @"current prayer type for fajr should be BAPrayerTypeFajr");
+    
+    NSDate *sunriseTime = [prayerTimes.sunriseTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeSunrise, [prayerTimes currentPrayerTypeForDate:sunriseTime], @"current prayer type for sunrise should be BAPrayerTypeSunrise");
+    
+    NSDate *dhuhrTime = [prayerTimes.dhuhrTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeDhuhr, [prayerTimes currentPrayerTypeForDate:dhuhrTime], @"current prayer type for dhuhr should be BAPrayerTypeDhuhr");
+    
+    NSDate *asrTime = [prayerTimes.asrTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeAsr, [prayerTimes currentPrayerTypeForDate:asrTime], @"current prayer type for asr should be BAPrayerTypeAsr");
+    
+    NSDate *maghribTime = [prayerTimes.maghribTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeMaghrib, [prayerTimes currentPrayerTypeForDate:maghribTime], @"current prayer type for maghrib should be BAPrayerTypeMaghrib");
+    
+    NSDate *ishaTime = [prayerTimes.ishaTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes currentPrayerTypeForDate:ishaTime], @"current prayer type for isha should be BAPrayerTypeIsha");
+    
+    NSDate *yesterdayIshaTime = [prayerTimes.fajrTime dateByAddingTimeInterval:-1.0];
+    XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes currentPrayerTypeForDate:yesterdayIshaTime], @"current prayer type for isha should be BAPrayerTypeIsha");
+    
+    XCTAssertEqual(BAPrayerTypeFajr, [prayerTimes currentPrayerTypeForDate:prayerTimes.fajrTime], @"current prayer type for fajr should be BAPrayerTypeFajr");
+    
+    NSDate *endOfSunriseTime = [prayerTimes.dhuhrTime dateByAddingTimeInterval:-1.0];
+    XCTAssertEqual(BAPrayerTypeSunrise, [prayerTimes currentPrayerTypeForDate:endOfSunriseTime], @"current prayer type for sunrise should be BAPrayerTypeSunrise");
+}
+
+- (void)testNextPrayerTimeChecking
+{
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                            latitude:35.740068
+                                                           longitude:-78.861207
+                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                              method:BAPrayerMethodMWL
+                                                              madhab:BAPrayerMadhabShafi];
+    
+    NSDate *fajrTime = [prayerTimes.fajrTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeSunrise, [prayerTimes nextPrayerTypeForDate:fajrTime], @"next prayer type for fajr should be BAPrayerTypeSunrise");
+    
+    NSDate *sunriseTime = [prayerTimes.sunriseTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeDhuhr, [prayerTimes nextPrayerTypeForDate:sunriseTime], @"next prayer type for sunrise should be BAPrayerTypeDhuhr");
+    
+    NSDate *dhuhrTime = [prayerTimes.dhuhrTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeAsr, [prayerTimes nextPrayerTypeForDate:dhuhrTime], @"next prayer type for dhuhr should be BAPrayerTypeAsr");
+    
+    NSDate *asrTime = [prayerTimes.asrTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeMaghrib, [prayerTimes nextPrayerTypeForDate:asrTime], @"next prayer type for asr should be BAPrayerTypeMaghrib");
+    
+    NSDate *maghribTime = [prayerTimes.maghribTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes nextPrayerTypeForDate:maghribTime], @"next prayer type for maghrib should be BAPrayerTypeIsha");
+    
+    NSDate *ishaTime = [prayerTimes.ishaTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeTomorrowFajr, [prayerTimes nextPrayerTypeForDate:ishaTime], @"next prayer type for isha should be BAPrayerTypeTomorrowFajr");
+}
 
 @end
