@@ -32,7 +32,7 @@
     BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodNorthAmerica
                                                                madhab:BAPrayerMadhabHanafi];
     
@@ -48,7 +48,7 @@
     BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone localTimeZone]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodMWL
                                                                madhab:BAPrayerMadhabShafi
                                                       customFajrAngle:0
@@ -72,7 +72,7 @@
     BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodMCW
                                                                madhab:BAPrayerMadhabHanafi
                                                       customFajrAngle:0
@@ -107,7 +107,7 @@
     BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone localTimeZone]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodMWL
                                                                madhab:BAPrayerMadhabShafi
                                                       customFajrAngle:0
@@ -122,7 +122,7 @@
     BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone localTimeZone]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodMWL
                                                                madhab:BAPrayerMadhabShafi
                                                       customFajrAngle:0
@@ -154,7 +154,7 @@
     BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone localTimeZone]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodNorthAmerica
                                                                madhab:BAPrayerMadhabShafi
                                                       customFajrAngle:0
@@ -169,7 +169,7 @@
     BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone localTimeZone]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodNone
                                                                madhab:BAPrayerMadhabShafi
                                                       customFajrAngle:15
@@ -184,7 +184,7 @@
     BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                              latitude:35.779701
                                                             longitude:-78.641747
-                                                             timeZone:[NSTimeZone localTimeZone]
+                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                                method:BAPrayerMethodNone
                                                                madhab:BAPrayerMadhabShafi
                                                       customFajrAngle:10
@@ -208,7 +208,7 @@
     BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                             latitude:35.740068
                                                            longitude:-78.861207
-                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                               method:BAPrayerMethodMWL
                                                               madhab:BAPrayerMadhabShafi];
     
@@ -226,7 +226,7 @@
     BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                             latitude:35.740068
                                                            longitude:-78.861207
-                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                               method:BAPrayerMethodMWL
                                                               madhab:BAPrayerMadhabShafi];
     
@@ -265,7 +265,7 @@
     BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                             latitude:35.740068
                                                            longitude:-78.861207
-                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                               method:BAPrayerMethodMWL
                                                               madhab:BAPrayerMadhabShafi];
     
