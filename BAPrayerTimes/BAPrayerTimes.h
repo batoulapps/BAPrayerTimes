@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, BAPrayerMethod) {
     BAPrayerMethodNone, // this will use the customFajrAngle and customIshaAngle
     BAPrayerMethodEgyptianGeneralAuthorityOfSurvey,
     BAPrayerMethodKarachiShafi,
@@ -20,12 +20,23 @@ typedef enum {
     BAPrayerMethodNewEgyptianAuthority,
     BAPrayerMethodUmmQurraRamadan,
     BAPrayerMethodMCW
-} BAPrayerMethod;
+};
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, BAPrayerMadhab) {
     BAPrayerMadhabShafi = 1,
-    BAPrayerMadhabHanafi
-} BAPrayerMadhab;
+    BAPrayerMadhabHanafi = 2,
+};
+
+typedef NS_ENUM(NSUInteger, BAPrayerType) {
+    BAPrayerTypeFajr = 0,
+    BAPrayerTypeSunrise,
+    BAPrayerTypeDhuhr,
+    BAPrayerTypeAsr,
+    BAPrayerTypeMaghrib,
+    BAPrayerTypeIsha,
+    BAPrayerTypeTomorrowFajr,
+    BAPrayerTypeNone
+};
 
 @interface BAPrayerTimes : NSObject
 
@@ -77,5 +88,9 @@ typedef enum {
      manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
         manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
                extremeMethod:(NSInteger)extremeMethod;
+
+- (NSDate *)prayerTimeForType:(BAPrayerType)prayerType;
+- (BAPrayerType)currentPrayerTypeForDate:(NSDate *)date;
+- (BAPrayerType)nextPrayerTypeForDate:(NSDate *)date;
 
 @end
