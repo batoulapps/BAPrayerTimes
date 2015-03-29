@@ -9,7 +9,7 @@ BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It
 The simplest way to use BAPrayerTimes is with CocoaPods.
 
 ```
-pod 'BAPrayerTimes', '~> 1.2'
+pod 'BAPrayerTimes', '~> 1.3'
 ```
 	
 You can also simply download the source and include it in your project. The necessary files are BAPrayerTimes.h, BAPrayerTimes.c, prayer.h, prayer.c, astro.h, and astro.c
