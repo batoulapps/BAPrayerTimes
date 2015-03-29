@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: BAPrayerTimes.xcodeproj
 xcode_scheme: BAPrayerTimesTests
+xcode_sdk: iphonesimulator8.1
