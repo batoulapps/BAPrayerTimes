@@ -265,7 +265,7 @@
     BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
                                                             latitude:35.740068
                                                            longitude:-78.861207
-                                                            timeZone:[NSTimeZone defaultTimeZone]
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
                                                               method:BAPrayerMethodMWL
                                                               madhab:BAPrayerMadhabShafi];
     
