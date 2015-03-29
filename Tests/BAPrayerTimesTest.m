@@ -283,6 +283,14 @@
     
     NSDate *ishaTime = [prayerTimes.ishaTime dateByAddingTimeInterval:1.0];
     XCTAssertEqual(BAPrayerTypeTomorrowFajr, [prayerTimes nextPrayerTypeForDate:ishaTime], @"next prayer type for isha should be BAPrayerTypeTomorrowFajr");
+    
+    XCTAssertEqual(BAPrayerTypeSunrise, [prayerTimes nextPrayerTypeForDate:prayerTimes.fajrTime], @"next prayer type for fajr should be BAPrayerTypeSunrise");
+    
+    NSDate *endOfSunriseTime = [prayerTimes.dhuhrTime dateByAddingTimeInterval:-1.0];
+    XCTAssertEqual(BAPrayerTypeDhuhr, [prayerTimes nextPrayerTypeForDate:endOfSunriseTime], @"next prayer type for sunrise should be BAPrayerTypeDhuhr");
+    
+    NSDate *beforeFajr = [prayerTimes.fajrTime dateByAddingTimeInterval:-1.0];
+    XCTAssertEqual(BAPrayerTypeFajr, [prayerTimes nextPrayerTypeForDate:beforeFajr], @"next prayer type for before fajr should be BAPrayerTypeFajr");
 }
 
 @end

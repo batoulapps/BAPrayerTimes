@@ -283,6 +283,10 @@ static NSInteger const kBADefaultExtremeMethod = 7;
 
 - (BAPrayerType)nextPrayerTypeForDate:(NSDate *)date
 {
+    if ([self.fajrTime compare:date] == NSOrderedDescending) {
+        return BAPrayerTypeFajr;
+    }
+    
     BAPrayerType currentPrayer = [self currentPrayerTypeForDate:date];
     return (currentPrayer + 1) % 7;
 }
