@@ -1,5 +1,7 @@
 #BAPrayerTimes
 
+[![Build Status](https://travis-ci.org/batoulapps/BAPrayerTimes.svg?branch=master)](https://travis-ci.org/batoulapps/BAPrayerTimes)
+
 BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It provides a convenient Objective-C interface to the ITL prayer times library, making it easy to correctly calculate prayer times on iOS and OS X.
 
 ##ITL
