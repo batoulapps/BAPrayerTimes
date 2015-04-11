@@ -30,8 +30,8 @@ class ViewController: UITableViewController {
             latitude: 35.779701,
             longitude: -78.641747,
             timeZone: NSTimeZone(name: "US/Eastern"),
-            method: BAPrayerMethodNorthAmerica,
-            madhab: BAPrayerMadhabHanafi)
+            method: .NorthAmerica,
+            madhab: .Hanafi)
     }
 
     // MARK: - Table View
@@ -45,36 +45,36 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
 
         if let prayers = prayerTimes {
             switch indexPath.row {
             case 0:
-                cell.textLabel.text = "Fajr"
+                cell.textLabel?.text = "Fajr"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.fajrTime)
                 break
             case 1:
-                cell.textLabel.text = "Sunrise"
+                cell.textLabel?.text = "Sunrise"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.sunriseTime)
                 break
             case 2:
-                cell.textLabel.text = "Dhuhr"
+                cell.textLabel?.text = "Dhuhr"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.dhuhrTime)
                 break
             case 3:
-                cell.textLabel.text = "Asr"
+                cell.textLabel?.text = "Asr"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.asrTime)
                 break
             case 4:
-                cell.textLabel.text = "Maghrib"
+                cell.textLabel?.text = "Maghrib"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.maghribTime)
                 break
             case 5:
-                cell.textLabel.text = "Isha"
+                cell.textLabel?.text = "Isha"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.ishaTime)
                 break
             case 6:
-                cell.textLabel.text = "Fajr Tomorrow"
+                cell.textLabel?.text = "Fajr Tomorrow"
                 cell.detailTextLabel?.text = dateFormatter.stringFromDate(prayers.tomorrowFajrTime)
                 break
             default:
