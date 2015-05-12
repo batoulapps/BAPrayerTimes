@@ -1,6 +1,7 @@
 #BAPrayerTimes
 
 [![Build Status](https://travis-ci.org/batoulapps/BAPrayerTimes.svg?branch=master)](https://travis-ci.org/batoulapps/BAPrayerTimes)
+[![Coverage Status](https://coveralls.io/repos/batoulapps/BAPrayerTimes/badge.svg?branch=coverage)](https://coveralls.io/r/batoulapps/BAPrayerTimes?branch=coverage)
 
 BAPrayerTimes is an Objective-C library for calculating Islamic prayer times. It provides a convenient Objective-C interface to the ITL prayer times library, making it easy to correctly calculate prayer times on iOS and OS X.
 
@@ -17,7 +18,7 @@ pod 'BAPrayerTimes', '~> 1.3'
 You can also simply download the source and include it in your project. The necessary files are BAPrayerTimes.h, BAPrayerTimes.c, prayer.h, prayer.c, astro.h, and astro.c
 	
 ##Requirements
-BAPrayerTimes is officially supported on iOS 6 and above as well as OS X 10.8 and above. It will most likely work on systems much earlier than those, however no testing has been done to verify this.	
+BAPrayerTimes is officially supported on iOS 6 and above as well as OS X 10.8 and above. It will most likely work on systems much earlier than those, however no testing has been done to verify this.
 
 ##Usage
 BAPrayerTimes is very simple to use. First import ``BAPrayerTimes.h`` and then initialize a ``BAPrayerTimes`` object. There are a few different initializers you can use to create a BAPrayerTimes object depending on how much customization you want to add. The most basic initializer is:
