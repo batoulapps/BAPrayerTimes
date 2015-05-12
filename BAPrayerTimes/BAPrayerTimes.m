@@ -214,26 +214,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
         components.minute = ptList[i].minute;
         components.second = ptList[i].second;
 
-        switch (i) {
-            case 0:
-                _fajrTime = [self.calendar dateFromComponents:components];
-                break;
-            case 1:
-                _sunriseTime = [self.calendar dateFromComponents:components];
-                break;
-            case 2:
-                _dhuhrTime = [self.calendar dateFromComponents:components];
-                break;
-            case 3:
-                _asrTime = [self.calendar dateFromComponents:components];
-                break;
-            case 4:
-                _maghribTime = [self.calendar dateFromComponents:components];
-                break;
-            case 5:
-                _ishaTime = [self.calendar dateFromComponents:components];
-                break;
-        }
+        [self setDate:[self.calendar dateFromComponents:components] forPrayerType:(BAPrayerType)i];
     }
 
     components.day++;
@@ -241,7 +222,19 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     components.minute = nextFajr.minute;
     components.second = nextFajr.second;
 
-    _tomorrowFajrTime = [self.calendar dateFromComponents:components];
+    [self setDate:[self.calendar dateFromComponents:components] forPrayerType:BAPrayerTypeTomorrowFajr];
+    
+    // adjust dates for post-midnight values
+    for (NSInteger i = 1; i < 6; i++) {
+        NSDate *previousPrayerTime = [self prayerTimeForType:i-1];
+        NSDate *prayerTime = [self prayerTimeForType:i];
+        if ([previousPrayerTime compare:prayerTime] > NSOrderedSame) {
+            NSDateComponents *adjustmentComponents = [[NSDateComponents alloc] init];
+            adjustmentComponents.day = 1;
+            prayerTime = [self.calendar dateByAddingComponents:adjustmentComponents toDate:prayerTime options:0];
+            [self setDate:prayerTime forPrayerType:(BAPrayerType)i];
+        }
+    }
 }
 
 - (NSDate *)prayerTimeForType:(BAPrayerType)prayerType
@@ -289,6 +282,38 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     
     BAPrayerType currentPrayer = [self currentPrayerTypeForDate:date];
     return (currentPrayer + 1) % 7;
+}
+
+#pragma mark - Helpers
+
+- (void)setDate:(NSDate *)date forPrayerType:(BAPrayerType)prayerType
+{
+    switch (prayerType) {
+        case BAPrayerTypeFajr:
+            _fajrTime = date;
+            break;
+        case BAPrayerTypeSunrise:
+            _sunriseTime = date;
+            break;
+        case BAPrayerTypeDhuhr:
+            _dhuhrTime = date;
+            break;
+        case BAPrayerTypeAsr:
+            _asrTime = date;
+            break;
+        case BAPrayerTypeMaghrib:
+            _maghribTime = date;
+            break;
+        case BAPrayerTypeIsha:
+            _ishaTime = date;
+            break;
+        case BAPrayerTypeTomorrowFajr:
+            _tomorrowFajrTime = date;
+            break;
+        case BAPrayerTypeNone:
+            //no-op
+            break;
+    }
 }
 
 @end
