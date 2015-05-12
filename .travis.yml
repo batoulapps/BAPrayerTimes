@@ -5,3 +5,4 @@ xcode_sdk: iphonesimulator
 bundler_args: --without development documentation --deployment --jobs=3 --retry=3
 after_success: bundle exec slather
 cache: bundler
+sudo: false
