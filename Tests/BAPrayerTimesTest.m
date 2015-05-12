@@ -219,6 +219,33 @@
     XCTAssertEqual(prayerTimes.maghribTime, [prayerTimes prayerTimeForType:BAPrayerTypeMaghrib], @"incorrect time for BAPrayerTypeMaghrib");
     XCTAssertEqual(prayerTimes.ishaTime, [prayerTimes prayerTimeForType:BAPrayerTypeIsha], @"incorrect time for BAPrayerTypeIsha");
     XCTAssertEqual(prayerTimes.tomorrowFajrTime, [prayerTimes prayerTimeForType:BAPrayerTypeTomorrowFajr], @"incorrect time for BAPrayerTypeTomorrowFajr");
+	XCTAssertNil([prayerTimes prayerTimeForType:BAPrayerTypeNone], @"incorrect time for BAPrayerTypeNone");
+}
+
+- (void)testSetDate
+{
+	BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+															latitude:35.779701
+														   longitude:-78.641747
+															timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
+															  method:BAPrayerMethodNorthAmerica
+															  madhab:BAPrayerMadhabShafi
+													 customFajrAngle:0
+													 customIshaAngle:0
+												manualAdjustmentFajr:0
+											 manualAdjustmentSunrise:0
+											   manualAdjustmentDhuhr:0
+												 manualAdjustmentAsr:0
+											 manualAdjustmentMaghrib:0
+												manualAdjustmentIsha:0];
+	
+	NSDate *fajrTime1 = prayerTimes.fajrTime;
+	
+	prayerTimes.date = [[NSDate date] dateByAddingTimeInterval:604800];	// add one week
+	
+	NSDate *fajrTime2 = prayerTimes.fajrTime;
+	
+	XCTAssertNotEqual(fajrTime1, fajrTime2, @"fajr times should be different after changing prayerTimes date");
 }
 
 - (void)testCurrentPrayerTimeChecking
