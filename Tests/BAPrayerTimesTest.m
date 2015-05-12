@@ -296,4 +296,20 @@
     XCTAssertEqual(BAPrayerTypeFajr, [prayerTimes nextPrayerTypeForDate:beforeFajr], @"next prayer type for before fajr should be BAPrayerTypeFajr");
 }
 
+- (void)testPostMidnightTimes
+{
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                            latitude:52.37380070
+                                                           longitude:4.89093470
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"Europe/Amsterdam"]
+                                                              method:BAPrayerMethodMWL
+                                                              madhab:BAPrayerMadhabShafi];
+    
+    NSDate *maghribTime = [prayerTimes.maghribTime dateByAddingTimeInterval:1.0];
+    XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes nextPrayerTypeForDate:maghribTime], @"next prayer type for maghrib should be BAPrayerTypeIsha");
+    
+    NSDate *beforeIsha = [prayerTimes.ishaTime dateByAddingTimeInterval:-1.0];
+    XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes nextPrayerTypeForDate:beforeIsha], @"next prayer type for before isha should be BAPrayerTypeIsha");
+}
+
 @end
