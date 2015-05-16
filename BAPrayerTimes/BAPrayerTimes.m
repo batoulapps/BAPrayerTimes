@@ -214,7 +214,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
         components.minute = ptList[i].minute;
         components.second = ptList[i].second;
 
-        [self setDate:[self.calendar dateFromComponents:components] forPrayerType:(BAPrayerType)i];
+        [self setTime:[self.calendar dateFromComponents:components] forPrayerType:(BAPrayerType)i];
     }
 
     components.day++;
@@ -222,7 +222,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
     components.minute = nextFajr.minute;
     components.second = nextFajr.second;
 
-    [self setDate:[self.calendar dateFromComponents:components] forPrayerType:BAPrayerTypeTomorrowFajr];
+    [self setTime:[self.calendar dateFromComponents:components] forPrayerType:BAPrayerTypeTomorrowFajr];
     
     // adjust dates for post-midnight values
     for (NSInteger i = 1; i < 6; i++) {
@@ -232,7 +232,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
             NSDateComponents *adjustmentComponents = [[NSDateComponents alloc] init];
             adjustmentComponents.day = 1;
             prayerTime = [self.calendar dateByAddingComponents:adjustmentComponents toDate:prayerTime options:0];
-            [self setDate:prayerTime forPrayerType:(BAPrayerType)i];
+            [self setTime:prayerTime forPrayerType:(BAPrayerType)i];
         }
     }
 }
@@ -286,29 +286,29 @@ static NSInteger const kBADefaultExtremeMethod = 7;
 
 #pragma mark - Helpers
 
-- (void)setDate:(NSDate *)date forPrayerType:(BAPrayerType)prayerType
+- (void)setTime:(NSDate *)prayerTime forPrayerType:(BAPrayerType)prayerType
 {
     switch (prayerType) {
         case BAPrayerTypeFajr:
-            _fajrTime = date;
+            _fajrTime = prayerTime;
             break;
         case BAPrayerTypeSunrise:
-            _sunriseTime = date;
+            _sunriseTime = prayerTime;
             break;
         case BAPrayerTypeDhuhr:
-            _dhuhrTime = date;
+            _dhuhrTime = prayerTime;
             break;
         case BAPrayerTypeAsr:
-            _asrTime = date;
+            _asrTime = prayerTime;
             break;
         case BAPrayerTypeMaghrib:
-            _maghribTime = date;
+            _maghribTime = prayerTime;
             break;
         case BAPrayerTypeIsha:
-            _ishaTime = date;
+            _ishaTime = prayerTime;
             break;
         case BAPrayerTypeTomorrowFajr:
-            _tomorrowFajrTime = date;
+            _tomorrowFajrTime = prayerTime;
             break;
         case BAPrayerTypeNone:
             //no-op

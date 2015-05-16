@@ -9,6 +9,13 @@
 #import <XCTest/XCTest.h>
 #import "BAPrayerTimes.h"
 
+@interface BAPrayerTimes ()
+
+// declaration of private helper method to allow for testing
+- (void)setTime:(NSDate *)prayerTime forPrayerType:(BAPrayerType)prayerType;
+
+@end
+
 @interface BAPrayerTimesTest : XCTestCase
 
 @end
@@ -246,6 +253,27 @@
 	NSDate *fajrTime2 = prayerTimes.fajrTime;
 	
 	XCTAssertNotEqual(fajrTime1, fajrTime2, @"fajr times should be different after changing prayerTimes date");
+}
+
+- (void)testHelpers
+{
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+                                                            latitude:35.779701
+                                                           longitude:-78.641747
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
+                                                              method:BAPrayerMethodNorthAmerica
+                                                              madhab:BAPrayerMadhabShafi
+                                                     customFajrAngle:0
+                                                     customIshaAngle:0
+                                                manualAdjustmentFajr:0
+                                             manualAdjustmentSunrise:0
+                                               manualAdjustmentDhuhr:0
+                                                 manualAdjustmentAsr:0
+                                             manualAdjustmentMaghrib:0
+                                                manualAdjustmentIsha:0];
+    
+    [prayerTimes setTime:[NSDate date] forPrayerType:BAPrayerTypeNone];
+    XCTAssertNil([prayerTimes prayerTimeForType:BAPrayerTypeNone], @"incorrect time for BAPrayerTypeNone");
 }
 
 - (void)testCurrentPrayerTimeChecking
