@@ -321,7 +321,6 @@
 		84443B971A146D0F004F438E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -331,7 +330,6 @@
 		84443B981A146D0F004F438E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
