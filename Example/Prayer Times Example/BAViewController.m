@@ -27,10 +27,10 @@
     self.dateFormatter.timeStyle = NSDateFormatterShortStyle;
 
     self.prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
-                                                  latitude:35.779701
-                                                 longitude:-78.641747
-                                                  timeZone:[NSTimeZone timeZoneWithName:@"US/Eastern"]
-                                                    method:BAPrayerMethodNorthAmerica
+                                                  latitude:51.5
+                                                 longitude:-0.1167
+                                                  timeZone:[NSTimeZone timeZoneWithName:@"Europe/London"]
+                                                    method:BAPrayerMethodMCW
                                                     madhab:BAPrayerMadhabHanafi];
 }
 
