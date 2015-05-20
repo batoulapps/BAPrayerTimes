@@ -25,7 +25,8 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    [NSTimeZone setDefaultTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
 }
 
 - (void)tearDown
@@ -34,9 +35,33 @@
     [super tearDown];
 }
 
+- (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day
+{
+    return [self dateWithYear:year month:month day:day hour:0 minute:0 second:0 timeZone:@"UTC"];
+}
+
+- (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day hour:(NSInteger)hour minute:(NSInteger)minute second:(NSInteger)second timeZone:(NSString *)timeZone
+{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [calendar setTimeZone:[NSTimeZone timeZoneWithName:timeZone]];
+    
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    [dateComponents setCalendar:calendar];
+    [dateComponents setYear:year];
+    [dateComponents setMonth:month];
+    [dateComponents setDay:day];
+    [dateComponents setHour:hour];
+    [dateComponents setMinute:minute];
+    [dateComponents setSecond:second];
+    
+    NSDate *date = [calendar dateFromComponents:dateComponents];
+    
+    return date;
+}
+
 - (void)testInitializers
 {
-    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -52,7 +77,7 @@
     XCTAssertNotNil(prayerTimes1.ishaTime, @"prayerTimes1.ishaTime shouldn't be nil");
     XCTAssertNotNil(prayerTimes1.tomorrowFajrTime, @"prayerTimes1.tomorrowFajrTime shouldn't be nil");
     
-    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -76,7 +101,7 @@
     XCTAssertNotNil(prayerTimes2.ishaTime, @"prayerTimes2.ishaTime shouldn't be nil");
     XCTAssertNotNil(prayerTimes2.tomorrowFajrTime, @"prayerTimes2.tomorrowFajrTime shouldn't be nil");
     
-    BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -90,7 +115,8 @@
                                                   manualAdjustmentAsr:0
                                               manualAdjustmentMaghrib:0
                                                  manualAdjustmentIsha:0
-                                                        extremeMethod:0];
+                                                        extremeMethod:BAExtremeMethodNearestLatitude
+                                                      extremeLatitude:48.5];
     
     XCTAssertNotNil(prayerTimes3, @"prayerTimes3 shouldn't be nil");
     XCTAssertNotNil(prayerTimes3.fajrTime, @"prayerTimes3.fajrTime shouldn't be nil");
@@ -111,7 +137,7 @@
     NSInteger maghribAdjustment = -10;
     NSInteger ishaAdjustment = -60;
     
-    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -126,7 +152,7 @@
                                               manualAdjustmentMaghrib:0
                                                  manualAdjustmentIsha:0];
     
-    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -158,7 +184,7 @@
 
 - (void)testCustomAngles
 {
-    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes1 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -173,7 +199,7 @@
                                               manualAdjustmentMaghrib:0
                                                  manualAdjustmentIsha:0];
 
-    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -188,7 +214,7 @@
                                               manualAdjustmentMaghrib:0
                                                  manualAdjustmentIsha:0];
 
-    BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes3 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                              latitude:35.779701
                                                             longitude:-78.641747
                                                              timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -212,7 +238,7 @@
 
 - (void)testPrayerTypes
 {
-    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                             latitude:35.740068
                                                            longitude:-78.861207
                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -231,7 +257,7 @@
 
 - (void)testSetDate
 {
-	BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+	BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
 															latitude:35.779701
 														   longitude:-78.641747
 															timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -248,7 +274,7 @@
 	
 	NSDate *fajrTime1 = prayerTimes.fajrTime;
 	
-	prayerTimes.date = [[NSDate date] dateByAddingTimeInterval:604800];	// add one week
+    prayerTimes.date = [self dateWithYear:2015 month:1 day:7];
 	
 	NSDate *fajrTime2 = prayerTimes.fajrTime;
 	
@@ -257,7 +283,7 @@
 
 - (void)testHelpers
 {
-    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                             latitude:35.779701
                                                            longitude:-78.641747
                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -272,13 +298,13 @@
                                              manualAdjustmentMaghrib:0
                                                 manualAdjustmentIsha:0];
     
-    [prayerTimes setTime:[NSDate date] forPrayerType:BAPrayerTypeNone];
+    [prayerTimes setTime:[self dateWithYear:2015 month:1 day:1] forPrayerType:BAPrayerTypeNone];
     XCTAssertNil([prayerTimes prayerTimeForType:BAPrayerTypeNone], @"incorrect time for BAPrayerTypeNone");
 }
 
 - (void)testCurrentPrayerTimeChecking
 {
-    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                             latitude:35.740068
                                                            longitude:-78.861207
                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -317,7 +343,7 @@
 
 - (void)testNextPrayerTimeChecking
 {
-    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:1 day:1]
                                                             latitude:35.740068
                                                            longitude:-78.861207
                                                             timeZone:[NSTimeZone timeZoneWithName:@"America/New_York"]
@@ -353,18 +379,71 @@
 
 - (void)testPostMidnightTimes
 {
-    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[NSDate date]
+    BAPrayerTimes *prayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:5 day:15]
                                                             latitude:52.37380070
                                                            longitude:4.89093470
                                                             timeZone:[NSTimeZone timeZoneWithName:@"Europe/Amsterdam"]
                                                               method:BAPrayerMethodMWL
-                                                              madhab:BAPrayerMadhabShafi];
+                                                              madhab:BAPrayerMadhabShafi
+                                                     customFajrAngle:0
+                                                     customIshaAngle:0
+                                                manualAdjustmentFajr:0
+                                             manualAdjustmentSunrise:0
+                                               manualAdjustmentDhuhr:0
+                                                 manualAdjustmentAsr:0
+                                             manualAdjustmentMaghrib:0
+                                                manualAdjustmentIsha:0
+                                                       extremeMethod:BAExtremeMethodSeventhOfNight
+                                                     extremeLatitude:55.0];
     
     NSDate *maghribTime = [prayerTimes.maghribTime dateByAddingTimeInterval:1.0];
     XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes nextPrayerTypeForDate:maghribTime], @"next prayer type for maghrib should be BAPrayerTypeIsha");
     
     NSDate *beforeIsha = [prayerTimes.ishaTime dateByAddingTimeInterval:-1.0];
     XCTAssertEqual(BAPrayerTypeIsha, [prayerTimes nextPrayerTypeForDate:beforeIsha], @"next prayer type for before isha should be BAPrayerTypeIsha");
+}
+
+- (void)testExtremeLatitudes
+{
+    BAPrayerTimes *amsterdamPrayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:5 day:19]
+                                                            latitude:52.37380070
+                                                           longitude:4.89093470
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"Europe/Amsterdam"]
+                                                              method:BAPrayerMethodMWL
+                                                              madhab:BAPrayerMadhabShafi
+                                                     customFajrAngle:0
+                                                     customIshaAngle:0
+                                                manualAdjustmentFajr:0
+                                             manualAdjustmentSunrise:0
+                                               manualAdjustmentDhuhr:0
+                                                 manualAdjustmentAsr:0
+                                             manualAdjustmentMaghrib:0
+                                                manualAdjustmentIsha:0
+                                                       extremeMethod:BAExtremeMethodAngle
+                                                     extremeLatitude:48.5];
+    
+    NSDate *amsterdamIshaTime = [self dateWithYear:2015 month:5 day:19 hour:23 minute:51 second:0 timeZone:@"UTC"];
+    XCTAssertEqualObjects(amsterdamPrayerTimes.ishaTime, amsterdamIshaTime, @"Isha time should be 11:51 PM for Amsterdam on 5/19/2015");
+    
+    BAPrayerTimes *londonPrayerTimes = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:5 day:19]
+                                                            latitude:51.5
+                                                           longitude:-0.1167
+                                                            timeZone:[NSTimeZone timeZoneWithName:@"Europe/London"]
+                                                              method:BAPrayerMethodMCW
+                                                              madhab:BAPrayerMadhabShafi
+                                                     customFajrAngle:0
+                                                     customIshaAngle:0
+                                                manualAdjustmentFajr:0
+                                             manualAdjustmentSunrise:0
+                                               manualAdjustmentDhuhr:0
+                                                 manualAdjustmentAsr:0
+                                             manualAdjustmentMaghrib:0
+                                                manualAdjustmentIsha:0
+                                                       extremeMethod:BAExtremeMethodAngle
+                                                     extremeLatitude:55];
+    
+    NSDate *londonIshaTime = [self dateWithYear:2015 month:5 day:19 hour:22 minute:1 second:0 timeZone:@"UTC"];
+    XCTAssertEqualObjects(londonPrayerTimes.ishaTime, londonIshaTime, @"Isha time should be 10:01 PM for London on 5/19/2015");
 }
 
 @end

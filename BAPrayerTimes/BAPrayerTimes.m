@@ -25,11 +25,13 @@
 @property (assign, nonatomic) NSInteger manualAdjustmentMaghrib;
 @property (assign, nonatomic) NSInteger manualAdjustmentIsha;
 @property (strong, nonatomic) NSCalendar *calendar;
-@property (assign, nonatomic) NSInteger extremeMethod;
+@property (assign, nonatomic) BAExtremeMethod extremeMethod;
+@property (assign, nonatomic) double extremeLatitude;
 
 @end
 
-static NSInteger const kBADefaultExtremeMethod = 7;
+static BAExtremeMethod const kBADefaultExtremeMethod = BAExtremeMethodSeventhOfNight;
+static double const kBADefaultExtremeLatitude = 48.5;
 
 @implementation BAPrayerTimes
 
@@ -85,7 +87,8 @@ static NSInteger const kBADefaultExtremeMethod = 7;
           manualAdjustmentAsr:manualAdjustmentAsr
       manualAdjustmentMaghrib:manualAdjustmentMaghrib
          manualAdjustmentIsha:manualAdjustmentIsha
-                extremeMethod:kBADefaultExtremeMethod];
+                extremeMethod:kBADefaultExtremeMethod
+              extremeLatitude:kBADefaultExtremeLatitude];
 }
 
 - (instancetype)initWithDate:(NSDate *)date
@@ -102,7 +105,8 @@ static NSInteger const kBADefaultExtremeMethod = 7;
          manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
      manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
         manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
-               extremeMethod:(NSInteger)extremeMethod
+               extremeMethod:(BAExtremeMethod)extremeMethod
+             extremeLatitude:(double)extremeLatitude
 {
     self = [super init];
     if (self) {
@@ -121,6 +125,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
         _manualAdjustmentMaghrib = manualAdjustmentMaghrib;
         _manualAdjustmentIsha = manualAdjustmentIsha;
         _extremeMethod = extremeMethod;
+        _extremeLatitude = extremeLatitude;
         
 #ifdef __IPHONE_8_0
         _calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -194,6 +199,7 @@ static NSInteger const kBADefaultExtremeMethod = 7;
 
     /* method to use for extreme locations */
     conf.extreme = (int)self.extremeMethod;
+    conf.extremeLat = self.extremeLatitude;
 
     conf.offset = 1;
     conf.offList[0] = self.manualAdjustmentFajr;

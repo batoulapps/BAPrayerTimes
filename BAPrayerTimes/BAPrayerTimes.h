@@ -38,6 +38,13 @@ typedef NS_ENUM(NSUInteger, BAPrayerType) {
     BAPrayerTypeNone
 };
 
+typedef NS_ENUM(NSUInteger, BAExtremeMethod) {
+    BAExtremeMethodNearestLatitude = 3,
+    BAExtremeMethodNearestGoodDay = 5,
+    BAExtremeMethodSeventhOfNight = 7,
+    BAExtremeMethodAngle = 15,
+};
+
 @interface BAPrayerTimes : NSObject
 
 @property (strong, nonatomic) NSDate *date;
@@ -87,7 +94,8 @@ typedef NS_ENUM(NSUInteger, BAPrayerType) {
          manualAdjustmentAsr:(NSInteger)manualAdjustmentAsr
      manualAdjustmentMaghrib:(NSInteger)manualAdjustmentMaghrib
         manualAdjustmentIsha:(NSInteger)manualAdjustmentIsha
-               extremeMethod:(NSInteger)extremeMethod;
+               extremeMethod:(BAExtremeMethod)extremeMethod
+             extremeLatitude:(double)extremeLatitude;
 
 - (NSDate *)prayerTimeForType:(BAPrayerType)prayerType;
 - (BAPrayerType)currentPrayerTypeForDate:(NSDate *)date;
