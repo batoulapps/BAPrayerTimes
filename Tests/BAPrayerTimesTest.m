@@ -444,6 +444,26 @@
     
     NSDate *londonIshaTime = [self dateWithYear:2015 month:5 day:19 hour:22 minute:1 second:0 timeZone:@"UTC"];
     XCTAssertEqualObjects(londonPrayerTimes.ishaTime, londonIshaTime, @"Isha time should be 10:01 PM for London on 5/19/2015");
+
+    BAPrayerTimes *londonPrayerTimes2 = [[BAPrayerTimes alloc] initWithDate:[self dateWithYear:2015 month:5 day:26]
+                                                                   latitude:51.5
+                                                                  longitude:-0.1167
+                                                                   timeZone:[NSTimeZone timeZoneWithName:@"Europe/London"]
+                                                                     method:BAPrayerMethodMCW
+                                                                     madhab:BAPrayerMadhabShafi
+                                                            customFajrAngle:0
+                                                            customIshaAngle:0
+                                                       manualAdjustmentFajr:0
+                                                    manualAdjustmentSunrise:0
+                                                      manualAdjustmentDhuhr:0
+                                                        manualAdjustmentAsr:0
+                                                    manualAdjustmentMaghrib:0
+                                                       manualAdjustmentIsha:0
+                                                              extremeMethod:BAExtremeMethodAngle
+                                                            extremeLatitude:55];
+    
+    NSDate *londonIshaTime2 = [self dateWithYear:2015 month:5 day:26 hour:22 minute:13 second:0 timeZone:@"UTC"];
+    XCTAssertEqualObjects(londonPrayerTimes2.ishaTime, londonIshaTime2, @"Isha time should be 10:13 PM for London on 5/26/2015");
 }
 
 @end
