@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'BAPrayerTimes'
-  s.version      = '1.4'
+  s.version      = '1.4.1'
   s.summary      = 'An Objective-C library for calculating Islamic prayer times'
 
   s.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
   s.requires_arc = true
 
-  s.source       = { :git => 'https://github.com/batoulapps/BAPrayerTimes.git', :tag => '1.4', :submodules => true }
+  s.source       = { :git => 'https://github.com/batoulapps/BAPrayerTimes.git', :tag => s.version.to_s, :submodules => true }
 
   s.source_files = 'BAPrayerTimes/BAPrayerTimes.{h,m}',
                    'ITL/prayertime/prayer.{h,c}',
